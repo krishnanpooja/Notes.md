@@ -1,14 +1,16 @@
 **Decorator**
 
-decorator function. This takes a function, func, as an argument. It also defines a function, log_function_called, which calls func() and executes some code, print(f'{func} called.'). Then it return the function it defined
+This takes a function, func, as an argument. It also defines a function, log_function_called, which calls func() and executes some code, print(f'{func}') called. Then it return the function it defined
 
+```
 def logging(func):
   def log_function_called():
     print(f'{func} called.')
     func()
   return log_function_called
-  
+ ```
 Let’s write other functions that we’ll eventually add the decorator to (but not yet).
+```
 def my_name():
   print('chris')
   
@@ -33,6 +35,7 @@ friends_name()
 #=> chris
 #=> <function friends_name at 0x10fca5f28> called.
 #=> naruto
+````
 
 **func object**
 
@@ -44,15 +47,17 @@ map - applying a function to every element in a sequence. ex:-list(map(add_three
 
 reduce - 
 reduce takes a function and a sequence and iterates over that sequence. On each iteration, both the current element and output from the previous element are passed to the function. In the end, a single value is returned.
+```
 from functools import reduce
 def add_three(x,y):
     return x + y
 li = [1,2,3,5]
 reduce(add_three, li)
 #=> 11
-
+```
 filter-
 Each element is passed to a function which is returned in the outputted sequence if the function returns True and discarded if the function returns False.
+```
 def add_three(x):
     if x % 2 == 0:
         return True        
@@ -61,7 +66,7 @@ def add_three(x):
 li = [1,2,3,4,5,6,7,8]
 [i for i in filter(add_three, li)]
 #=> [2, 4, 6, 8]
-
+```
 
 **Shallow copy and Deep Copy**
 
@@ -72,6 +77,7 @@ shallow copy:
 l1=list(l2)  or l1=l2.copy()
 Adding an element in l2 wont reflect on l1
 but if you modify initial values.. this change is reflected
+```
 li3 = [['a'],['b'],['c']]
 li4 = list(li3)
 li3.append([4])
@@ -80,6 +86,7 @@ print(li4)
 li3[0][0] = ['X']
 print(li4)
 #=> [[['X']], ['b'], ['c']]
+```
 
 deep copy:
 ex:- li6 = copy.deepcopy(li5) 
@@ -89,6 +96,7 @@ li5 and li6 are two seperate lists. changes in one is not reflected on other
 
 Pickling is the go-to method of serializing and unserializing objects in Python.
 In the example below, we serialize and unserialize a list of dictionaries.
+```
 import pickle
 obj = [
     {'id':1, 'name':'Stuffy'},
@@ -100,6 +108,7 @@ with open('file.p', 'rb') as f:
     loaded_obj = pickle.load(f)
 print(loaded_obj)
 #=> [{'id': 1, 'name': 'Stuffy'}, {'id': 2, 'name': 'Fluffy'}]
+```
 
 **Lambda function**
 
@@ -111,6 +120,8 @@ Python nuances:
 1. An underscore _ at the beginning is used to denote private variables in Python.
 2.property() is a built-in function that creates and returns a property object. The syntax of this function is:
 property(fget=None, fset=None, fdel=None, doc=None)
+
+```
 # Using @property decorator
 class Celsius:
     def __init__(self, temperature=0):
@@ -140,12 +151,14 @@ print(human.temperature)
 print(human.to_fahrenheit())
 
 coldest_thing = Celsius(-300)
+```
 
 **Generator**
 
 Yield instead of return statement
 
 https://www.programiz.com/python-programming/generator
+```
 def fibonacci_numbers(nums):
     x, y = 0, 1
     for _ in range(nums):
@@ -157,6 +170,7 @@ def square(nums):
         yield num**2
 
 print(sum(square(fibonacci_numbers(10))))
+```
 
 **Closure**
 
