@@ -269,3 +269,125 @@ S is the stride - default 1
 Boosting and bagging are similar, in that they are both ensembling techniques, where a number of weak learners (classifiers/regressors that are barely better than guessing) combine (through averaging or max vote) to create a strong learner that can make accurate predictions. Bagging means that you take bootstrap samples (with replacement) of your data set and each sample trains a (potentially) weak learner. Boosting, on the other hand, uses all data to train each learner, but instances that were misclassified by the previous learners are given more weight so that subsequent learners give more focus to them during training
 Random Forest - Bagging - reduces variance thereby overfitting
 Adaptive Boosting or Adaboost -Boosting - reduces bias, may tend to overfit
+
+**Tensorflow**
+
+Eager Execution:
+TensorFlow's eager execution is an imperative programming environment that evaluates operations immediately, without building graphs: operations return concrete values instead of constructing a computational graph to run later.
+
+In Tensorflow 2.0, eager execution is enabled by default.
+Since there isn't a computational graph to build and run later in a session, it's easy to inspect results using print() or a debugger. 
+
+```
+def run(mean, std, sample_size, ex):
+    if ex == EAGER:
+        tf.enable_eager_execution()
+    elif ex == INTERACTIVE:
+        global interactive_session
+        if interactive_session is None:
+            interactive_session = tf.InteractiveSession()
+    elif ex == SESSION:
+        global session
+        if session is None:
+            session = tf.Session()
+    else:
+        assert ex in [INTERACTIVE, EAGER, SESSION]
+```
+ 
+The sequential API allows you to create models layer-by-layer for most problems. It is limited in that it does not allow you to create models that share layers or have multiple inputs or outputs.
+
+**Keras**
+
+Alternatively, the functional API allows you to create models that have a lot more flexibility as you can easily define models where layers connect to more than just the previous and next layers. In fact, you can connect layers to (literally) any other layer. As a result, creating complex networks such as siamese networks and residual networks become possible.
+
+**Losses**
+1. Cross Entropy- also known as log loss
+ L= -(ylog p + (1-y)log(1-p))
+ Log losses penalizes for confidently predicting wrong answers. As in, the answer is wrong even though its predicted with high probability.
+ multiclass cross entropy = - sigma(y log p)
+ y is binary indicator (0 or 1) if class label c is the correct classification for observation 
+ 
+2. hinge loss- SVM loss
+L=max(0,1-y_pred*y)
+The hinge loss function encourages examples to have the correct sign, assigning more error when there is a difference in the sign between the actual and predicted class values.
+
+3. MSE- (y_pred-y)**2 . average this for whole dataset- The squaring means that larger mistakes result in more error than smaller mistakes, meaning that the model is punished for making larger mistakes.
+
+4. MAE - average of |y_pred-y| - good with outliers
+
+5. softmax loss - multiclass svm 
+6. Binary loss
+
+**The mathematics of matrix factorization**
+
+Having discussed the intuition behind matrix factorization, we can now go on to work on the mathematics. Firstly, we have a set U of users, and a set D of items. Let \mathbf{R} of size |U| \times |D| be the matrix that contains all the ratings that the users have assigned to the items. Also, we assume that we would like to discover $K$ latent features. Our task, then, is to find two matrics matrices \mathbf{P} (a |U| \times K matrix) and \mathbf{Q} (a |D| \times K matrix) such that their product approximates \mathbf{R}:
+
+R=PQ_Transpose
+
+In this way, each row of {P} would represent the strength of the associations between a user and the features. Similarly, each row of {Q} would represent the strength of the associations between an item and the features. To get the prediction of a rating of an item d_j by u_i, we can calculate the dot product of the two vectors corresponding to u_i and d_j:
+
+\hat{r}_{ij} = p_i^T q_j = \sum_{k=1}^k{p_{ik}q_{kj}}
+
+Now, we have to find a way to obtain \mathbf{P} and \mathbf{Q}. One way to approach this problem is the first intialize the two matrices with some values, calculate how 'different’ their product is to \mathbf{M}, and then try to minimize this difference iteratively. Such a method is called gradient descent, aiming at finding a local minimum of the difference.
+
+The difference here, usually called the error between the estimated rating and the real rating, can be calculated by the following equation for each user-item pair:
+
+
+e_{ij}^2 = (r_{ij} - \hat{r}_{ij})^2 = (r_{ij} - \sum_{k=1}^K{p_{ik}q_{kj}})^2
+
+Here we consider the squared error because the estimated rating can be either higher or lower than the real rating.
+Learning rate is set to small value.This is because if we make too large a step towards the minimum we may run into the risk of missing the minimum and end up oscillating around the minimum.
+
+**Naive Bayes**
+
+A Naive Bayes Classifier is a supervised machine-learning algorithm that uses the Bayes’ Theorem, which assumes that features are statistically independent. The theorem relies on the naive assumption that input variables are independent of each other, i.e. there is no way to know anything about other variables when given an additional variable. Regardless of this assumption, it has proven itself to be a classifier with good results.
+Given a vector x of features, Naive Bayes calculates the probability that the vector belongs to each class.
+
+P( Ck | x1, x2, … xn )
+
+Thanks to Bayes’ Theorem, we know that it is equal to:
+
+P( Ck | x) = (P(x | Ck) *P(Ck) ) / P(x)
+
+We know P(Ck) because of the class distribution in our data.
+
+P(x | Ck) is equivalent to its joint probability P(Ck ,x1 , x2, …, xn). By the chain rule in probabilities we can expand it to:
+
+P(Ck ,x1 , x2, …, xn) = P(x1 | x2, …, xn, Ck) * P(x2, …, xn, Ck)
+
+= P(x1 | x2, …, xn, Ck) * P(x2, | x3, …, xn, Ck) * P(x3, …, xn, Ck)
+
+= ….
+
+= P(x1 | x2, …, xn, Ck) * P(x2, | x3, …, xn, Ck) * P(xn-1, | xn, Ck)* P(xn | Ck)* P(Ck)
+
+We now make a strong assumption on the conditional probabilities we just calculated. We assume that they are conditionally independent. In other words, knowing that { xi+1, …, xn } occurred doesn't affect the probability of xi occurring. Put more formally:
+
+P(xi, | xi+1, …, xn, Ck) = P(xi, | Ck).
+
+This means that: P(Ck ,x1 , x2, …, xn) = 
+
+To calculate each of the conditional class probabilities—P(xi | Ck )—we use a likelihood function to model the probability distribution. One of the most common is the Gaussian or normal distribution.
+
+To make a prediction, we choose the class that had the highest score.
+
+**How to handle Outliers??**
+
+1. Visualization - Use a scatter plot and look for points that are far away
+2. Interquartile Range- The good data is estimated to lie 25% to 75% of the values. 
+You calculate the lower bound and upper bound. The values that lie outside this range are outliers
+Lower Bound =Q1 -1.5*(Q3-Q1)(difference between starting value in 25% and ending value in 75%)
+Upper Bound = Q3 + 1.5*(Q3-Q1)
+Example: An outlier is any point that is below the lower bound or above the upper bound. As an example, let’s assume you have a data set of adult heights in inches. Let’s say the 25th percentile is 65 inches and the 75th percentile is 75 inches. That means that 50% of adult heights are between 65 and 75 inches, with an IQR of 10 inch
+
+Effect of Outliers:
+The average of the data is moved because moved. The mean cannot be used to estimate the avg value as it could be biased by the outlier.
+We need to use median in such cases to avoid the effect of outliers.
+
+**Decision Trees**
+
+You look for a split that classifies data into a class completely or atleast the best.
+Gini Index= 1-summation(P(k=c))
+Entropy= - p log p
+
+Outliers should not be removed until it erroneous  values.
