@@ -119,6 +119,7 @@ The fake task in CBOW is somewhat similar to Skip-gram, in the sense that we sti
 The dimension of our hidden layer and output layer will remain the same. Only the dimension of our input layer and the calculation of hidden layer activations will change, if we have 4 context words for a single target word, we will have 4 1xV input vectors. Each will be multiplied with the VxE hidden layer returning 1xE vectors. All 4 1xE vectors will be averaged element-wise to obtain the final activation which then will be fed into the softmax layer.
 
 Skip-gram: works well with a small amount of the training data, represents well even rare words or phrases.
+
 CBOW: several times faster to train than the skip-gram, slightly better accuracy for the frequent words.
 
 one-hot vector*embedding matrix = embedding vector for the word
