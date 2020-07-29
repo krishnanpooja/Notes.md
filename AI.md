@@ -391,3 +391,54 @@ Gini Index= 1-summation(P(k=c))
 Entropy= - p log p
 
 Outliers should not be removed until it erroneous  values.
+
+**Dice Coefficient**
+
+2 * |X| ∩ |Y| / (|X| + |Y|)
+|X| means the number of elements in set X
+
+**Triplet Loss Function**
+
+triplet loss function using which gradients are calculated. The variable “a” represents the anchor image, “p” represents a positive image and “n” represents a negative image. We know that the dissimilarity between a and p should be less than the dissimilarity between a and n,. Another variable called margin, which is a hyperparameter is added to the loss equation. Margin defines how far away the dissimilarities should be, i.e if margin = 0.2 and d(a,p) = 0.5 then d(a,n) should at least be equal to 0.7. Margin helps us distinguish the two images better.
+L=max(0, d(a,n)-d(a,p)+margin)
+
+**bias**
+
+The bias value allows the activation function to be shifted to the left or right, to better fit the data.
+
+**GRU**
+
+A slightly more dramatic variation on the LSTM is the Gated Recurrent Unit, or GRU, introduced by Cho, et al. (2014). It combines the forget and input gates into a single “update gate.” It also merges the cell state and hidden state, and makes some other changes. The resulting model is simpler than standard LSTM models, and has been growing increasingly popular.
+
+**Activation Functions**
+
+Activation :
+sigmoid- (0,1)
+(1/e^-x+1)
+Problem = Vanishing Gradient
+
+Tanh=[-1,1]
+advantage: Gradient is steeper compared to sigmoid and larger range of values
+problem:problem of gradients at the ends of the function continues.
+
+ReLU=  max(0,x)
+The fact that the calculation load is less than the sigmoid and hyperbolic tangent functions has led to a higher preference for multi-layer networks
+Vanishing gradient
+Cheap to compute as there is no complicated math and hence easier to optimize
+It converges faster. It accelerates the convergence of SGD compared to sigmoid and tanh (around 6 times).
+Not have vanishing gradient problems like tanh or Sigmoid function
+It is capable of outputting a true zero value allowing the activation of hidden layers in neural networks to contain one or more true zero values called Representational Sparsity
+
+Problems with ReLU
+The downside for being zero for all negative values called dying ReLU. So if once neuron gets negative it is unlikely for it to recover. This is called “dying ReLU” problem
+If the learning rate is too high the weights may change to a value that causes the neuron to not get updated at any data point again.
+ReLU generally not used in RNN because they can have very large outputs so they might be expected to be far more likely to explode than units that have bounded values.
+
+Leaky ReLU- max(0.01x,x)
+
+softmax- Multiclass classification
+=e^x/summation(e^x)
+The sigmoid function can be used if you say that the hyperbolic tangent or model can be learned a little slower because of its wide range of activating functions. But if your network is too deep and the computational load is a major problem, ReLU can be preferred. You can decide to use Leaky ReLU as a solution to the problem of vanishing gradients in ReLU. But you do more computation than ReLU.
+
+
+
