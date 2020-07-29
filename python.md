@@ -182,3 +182,24 @@ we have a closure in Python when a nested function references a value in its enc
 
 Closures can avoid the use of global values and provides some form of data hiding. It can also provide an object oriented solution to the problem.
 
+**Python's garbage collector**
+
+Python's garbage collector runs during program execution and is triggered when an object's reference count reaches zero
+Dynamically created objects are assigned memory in heap
+
+Mark and Sweep Algorithm
+Any garbage collection algorithm must perform 2 basic operations. One, it should be able to detect all the unreachable objects and secondly, it must reclaim the heap space used by the garbage objects and make the space available again to the program.
+The above operations are performed by Mark and Sweep Algorithm in two phases:
+1) Mark phase
+2) Sweep phase
+
+```
+Sweep()
+For each object p in heap
+    If markedBit(p) = true then
+        markedBit(p) = false
+    else
+        heap.release(p)
+```
+
+
