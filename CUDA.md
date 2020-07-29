@@ -71,7 +71,9 @@ void cudaAddVectors(const float *a,const float *b,float *c,size)
  a typical GPU comes with its own global memory (DRAM- Dynamic Random Access Memory)
  
  __global__---> executable on CPU n callable from GPU
+ 
  __device__--> exec-GPU call-CPU
+ 
  __host__--> exec-GPU call-GPU
  
  example:
@@ -134,5 +136,7 @@ void matrixMultiplication(float *A, float *B, float *C, int N){
     matrixMultiplicationKernel<<<(N/512,N/512),(512,512)>>>(A, B, C, N);
 }
 ```
-__syncthreads() to synchronize threads. When the method is encountered in the kernel, all threads in a block will be blocked at the calling location until each of them reaches the location.
+__syncthreads() to synchronize threads. 
+
+When the method is encountered in the kernel, all threads in a block will be blocked at the calling location until each of them reaches the location.
 If an if-then-else statement is present inside the kernel, then either all the threads will take the if path, or all the threads will take the else path. This is implied. As all the threads of a block have to execute the sync method call, if threads took different paths, then they will be blocked forever.
