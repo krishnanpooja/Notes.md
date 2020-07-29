@@ -45,3 +45,109 @@ class Main
 }
 ```
 
+**Factory Pattern**
+
+ factory pattern is one of the core design principles to create an object, allowing clients to create objects of a library(explained below) in a way such that it doesn’t have tight coupling with the class hierarchy of the library.
+ 
+ ```
+ Vehicle* Vehicle::Create(VehicleType type) { 
+    if (type == VT_TwoWheeler) 
+        return new TwoWheeler(); 
+    else if (type == VT_ThreeWheeler) 
+        return new ThreeWheeler(); 
+    else if (type == VT_FourWheeler) 
+        return new FourWheeler(); 
+    else return NULL; 
+} 
+```
+
+**Adapter Pattern**
+
+To use an adapter:
+
+The client makes a request to the adapter by calling a method on it using the target interface.
+The adapter translates that request on the adaptee using the adaptee interface.
+Client receive the results of the call and is unaware of adapter’s presence.
+// Java implementation of Adapter pattern 
+
+interface Bird 
+{ 
+	// birds implement Bird interface that allows 
+	// them to fly and make sounds adaptee interface 
+	public void fly(); 
+	public void makeSound(); 
+} 
+
+class Sparrow implements Bird 
+{ 
+	// a concrete implementation of bird 
+	public void fly() 
+	{ 
+		System.out.println("Flying"); 
+	} 
+	public void makeSound() 
+	{ 
+		System.out.println("Chirp Chirp"); 
+	} 
+} 
+
+interface ToyDuck 
+{ 
+	// target interface 
+	// toyducks dont fly they just make 
+	// squeaking sound 
+	public void squeak(); 
+} 
+
+class PlasticToyDuck implements ToyDuck 
+{ 
+	public void squeak() 
+	{ 
+		System.out.println("Squeak"); 
+	} 
+} 
+
+class BirdAdapter implements ToyDuck 
+{ 
+	// You need to implement the interface your 
+	// client expects to use. 
+	Bird bird; 
+	public BirdAdapter(Bird bird) 
+	{ 
+		// we need reference to the object we 
+		// are adapting 
+		this.bird = bird; 
+	} 
+
+	public void squeak() 
+	{ 
+		// translate the methods appropriately 
+		bird.makeSound(); 
+	} 
+} 
+
+class Main 
+{ 
+	public static void main(String args[]) 
+	{ 
+		Sparrow sparrow = new Sparrow(); 
+		ToyDuck toyDuck = new PlasticToyDuck(); 
+
+		// Wrap a bird in a birdAdapter so that it 
+		// behaves like toy duck 
+		ToyDuck birdAdapter = new BirdAdapter(sparrow); 
+
+		System.out.println("Sparrow..."); 
+		sparrow.fly(); 
+		sparrow.makeSound(); 
+
+		System.out.println("ToyDuck..."); 
+		toyDuck.squeak(); 
+
+		// toy duck behaving like a bird 
+		System.out.println("BirdAdapter..."); 
+		birdAdapter.squeak(); 
+	} 
+} 
+
+
