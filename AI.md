@@ -296,6 +296,25 @@ def run(mean, std, sample_size, ex):
  
 The sequential API allows you to create models layer-by-layer for most problems. It is limited in that it does not allow you to create models that share layers or have multiple inputs or outputs.
 
+Variables
+A TensorFlow variable is the best way to represent shared, persistent state manipulated by your program. Variables are manipulated via the tf.Variable class. Internally, a tf.Variable stores a persistent tensor. Specific operations allow you to read and modify the values of this tensor. These modifications are visible across multiple tf.Sessions, so multiple workers can see the same values for a tf.Variable. Variables must be initialized before using.
+
+Placeholders
+A placeholder is a node (same as a variable) whose value can be initialized in the future. These nodes basically output the value assigned to them during runtime. A placeholder node can be assigned using the tf.placeholder() class to which you can provide arguments such as type of the variable and/or its shape. Placeholders are extensively used for representing the training dataset in a machine learning model as the training dataset keeps changing.
+
+In tensorflow you create graphs and pass values to that graph. Graph does all the hardwork and generate the output based on the configuration that you have made in the graph. Now When you pass values to the graph then first you need to create a tensorflow session.
+
+tf.Session()
+Once session is initialized then you are supposed to use that session because all the variables and settings are now part of the session.
+
+So, there are two ways to pass external values to the graph so that graph accepts them. One is to call the .run() while you are using the session being executed. Other way which is basically a shortcut to this is to use .eval(). I said shortcut because the full form of .eval() is
+
+tf.get_default_session().run(values)
+At the place of values.eval() run tf.get_default_session().run(values). You must get the same behavior, here what eval is doing, is using the default session and then executing run().
+
+tf.nn.* - low level open
+tf.layers.* - high level wrapper for the ops.Has more parameters like kernel_initializers etc
+
 **Keras**
 
 Alternatively, the functional API allows you to create models that have a lot more flexibility as you can easily define models where layers connect to more than just the previous and next layers. In fact, you can connect layers to (literally) any other layer. As a result, creating complex networks such as siamese networks and residual networks become possible.
@@ -311,7 +330,7 @@ Alternatively, the functional API allows you to create models that have a lot mo
 L=max(0,1-y_pred*y)
 The hinge loss function encourages examples to have the correct sign, assigning more error when there is a difference in the sign between the actual and predicted class values.
 
-3. MSE- (y_pred-y)**2 . average this for whole dataset- The squaring means that larger mistakes result in more error than smaller mistakes, meaning that the model is punished for making larger mistakes.
+3. MSE- (y_pred-y)^2 . average this for whole dataset- The squaring means that larger mistakes result in more error than smaller mistakes, meaning that the model is punished for making larger mistakes.
 
 4. MAE - average of |y_pred-y| - good with outliers
 
@@ -440,5 +459,23 @@ softmax- Multiclass classification
 =e^x/summation(e^x)
 The sigmoid function can be used if you say that the hyperbolic tangent or model can be learned a little slower because of its wide range of activating functions. But if your network is too deep and the computational load is a major problem, ReLU can be preferred. You can decide to use Leaky ReLU as a solution to the problem of vanishing gradients in ReLU. But you do more computation than ReLU.
 
+**Problem with using RNN for translation**
 
+1. Memory Problems - difficult to remember the context for long sentences. Solved using LSTM 
+2. Tough to converge- Tough to converge even with LSTM
+3. Slow training time- has to be trained sequentially
+
+**Neural Machine Translation(NMT):**
+
+1. Encoder - Decoder architecture
+2. each word in base language is passed to the RNN. the result of this and new word is fed to next RNN in encoder
+3. The output vector from the encoder is then provided to decoder as input
+
+**Attention is all you need: Transformer Network**
+
+Attention - focus on things with high resolution.
+No sequential proccessing. So model converges faster.
+
+Attention is based on query,key and value.
+Attention weights for a word is calculated as Q.K_T . This value is scaled and softmaxed and then matmul with VT
 
