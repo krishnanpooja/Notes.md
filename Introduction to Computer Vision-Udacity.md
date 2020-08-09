@@ -23,7 +23,7 @@ Landscape aperture required is small. Everything in focus
 - Longer the focal length==smaller field of view.
 
 
-## Perspective Imaging
+## Lession 15 - Perspective Imaging
 
 #### Coordinate System
 Right handed coordinate system. Assuming img plane is placed such that the img is not inverted. 
