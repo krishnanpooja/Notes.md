@@ -53,6 +53,23 @@ Too much math to prove:-p
    Each object has its own scaling. Scale factor per object. 
  
 ## Lesson 16 - Stereo Geometry
+- Img from one eye is different from img for other eye
+- 3D is possible bcs two different are shown to the eye.
+
+#### Depth of Disparity
+If in an image the object wrt to its background, for example a chimney has moved left wrt to tree in background, then its right stereo image
+Disparity Map- conatins disparity for every point (x,y)
+Brighter values closer z(which is an estimate of depth)
+
+
+
+
+
+
+
+
+
+
 
 
 
