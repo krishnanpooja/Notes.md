@@ -41,7 +41,23 @@ Converting from homo coord:
 Perspective Projection: 
 Multiply the img mat with the homo coordinates. This results the linear representation of the points.
 
-#### 
+#### Parallel Lines
+Almost all Parallel lines in the World meet in the image:-)  Not the vertical ones!!
+The point is called Vanishing Point
+
+Too much math to prove:-p
+
+#### Other models:
+1. Orthographic  - Distance from center of proj to img plane is infinite
+2. Weak Perspective - (x,y,z)-> (fx/z,fy/z).
+   Each object has its own scaling. Scale factor per object. 
+ 
+## Lesson 16 - Stereo Geometry
+
+
+
+
+
 
 
 
