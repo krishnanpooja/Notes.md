@@ -62,6 +62,12 @@ Disparity Map- conatins disparity for every point (x,y)
 Brighter values closer z(which is an estimate of depth)
 
 
+## Lesson 17 - 
+
+
+
+
+
 
 
 
