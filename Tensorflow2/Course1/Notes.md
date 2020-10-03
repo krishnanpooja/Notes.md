@@ -145,9 +145,102 @@ pred = model.predict(x_sample)
 add dummy channel to sample  :  x[...,np.newaxis]
 
 
+## Week 3 - Validation, regularisation and callbacks
 
+Overfit when the training performance increases and validation performance decreases
 
+```
+Dense(64,kernel_regularizer=tf.keras.regularizers.l2(0.001),#weight_decay =0.01. other regularizers =l1, l1_l2
+               bias_regularizer= tf.keras.regularizers.l1(0.005) ) 
+```
 
+**Batch Normalization**
 
+```
+BatchNormalization(),  # <- Batch normalisation layer
+```
+There are some parameters and hyperparameters associated with batch normalisation.
 
+The hyperparameter momentum is the weighting given to the previous running mean when re-computing it with an extra minibatch. By default, it is set to 0.99.
 
+The hyperparameter  𝜖  is used for numeric stability when performing the normalisation over the minibatch. By default it is set to 0.001.
+
+The parameters  𝛽  and  𝛾  are used to implement an affine transformation after normalisation. By default,  𝛽  is an all-zeros vector, and  𝛾  is an all-ones vector.
+
+```
+# Add a customised batch normalisation layer
+
+model.add(tf.keras.layers.BatchNormalization(
+    momentum=0.95, 
+    epsilon=0.005,
+    axis = -1,
+    beta_initializer=tf.keras.initializers.RandomNormal(mean=0.0, stddev=0.05), 
+    gamma_initializer=tf.keras.initializers.Constant(value=0.9)
+))
+```
+
+**Callbacks**
+
+```
+from tensorflow.keras.callbacks import Callback
+
+class my_callback(Callback):
+   def on_train_begin(self,logs=None):
+       #To do something at the start of the training
+   
+   def on_train_begin(self,batch,logs=None):
+       #To do something at the start of the batch iteration
+
+model.fit(X,y,epochs=5,callbacks=[my_callback()])
+```
+
+**EarlyStopping**
+
+```
+from tensorflow.keras.callbacks import EarlyStopping
+
+earlyStopping = EarlyStopping(monitor='val_loss',patience =5 ,min_delta=0.01,mode=min) 
+#patience = some epochs, training terminates if there is no improvement for 5 epochs
+#min_delta sets a diff that is tolerated for val_loss. If bad then the patience is ++
+#mode suggests that we are looking for the validation to minimize
+
+model.fit(x,y,validation_split=0.2,epochs=100,callbacks=[earlyStopping])
+```
+
+**Logger**
+
+```
+tf.keras.callbacks.CSVLogger(filename, separator=',', append=False)
+```
+This callback streams the results from each epoch into a CSV file. The first line of the CSV file will be the names of pieces of information recorded on each subsequent line, beginning with the epoch and loss value. The values of metrics at the end of each epoch will also be recorded.
+
+**Lambda callbacks**
+
+```
+tf.keras.callbacks.LambdaCallback(
+        on_epoch_begin=None, on_epoch_end=None, 
+        on_batch_begin=None, on_batch_end=None, 
+        on_train_begin=None, on_train_end=None)
+```
+Lambda callbacks are used to quickly define simple custom callbacks with the use of lambda functions.
+
+Each of the functions require some positional arguments.
+
+on_epoch_begin and on_epoch_end expect two arguments: epoch and logs,
+on_batch_begin and on_batch_end expect two arguments: batch and logs and
+on_train_begin and on_train_end expect one argument: logs.
+
+**Reduce learning rate on plateau**
+
+```
+tf.keras.callbacks.ReduceLROnPlateau(
+            monitor='val_loss', 
+            factor=0.1, 
+            patience=10, 
+            verbose=0, 
+            mode='auto', 
+            min_delta=0.0001, 
+            cooldown=0, 
+            min_lr=0)
+```
+The ReduceLROnPlateau callback allows reduction of the learning rate when a metric has stopped improving. The arguments are similar to those used in the EarlyStopping callback.
