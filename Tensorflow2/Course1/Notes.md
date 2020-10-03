@@ -125,11 +125,24 @@ In top  𝑘 -categorical accuracy, instead of computing how often the model cor
 As before, the main difference between top  𝑘 -categorical accuracy and its sparse version is that the former assumes  𝑦𝑡𝑟𝑢𝑒  is a one-hot encoded vector, whereas the sparse version assumes  𝑦𝑡𝑟𝑢𝑒  is an integer.
 
 
+**Fit Method**
+
+```
+history = model.fit(x_train,y_train,epoch=10,batch_size=16)
+#x_train = numpy array of (num_samples,num_features)
+#y_train = numpy array of (num_samples,num_classes) #one-hot 
+#history contains the history of loss....
+```
+if the classes are basically numbers (i.e, y_train =(num_samples)) then use sparse_categorical_crossentropy if y_train is one_hot representation then use categorical_crossentropy. 
 
 
+**Evaluate method**
 
-
-
+```
+loss,accuracy,mae = model.evalute(x_test,y_test)
+pred = model.predict(x_sample)
+```
+add dummy channel to sample  :  x[...,np.newaxis]
 
 
 
