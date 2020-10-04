@@ -284,7 +284,7 @@ Architecture + weights
 
 **To load the model**
 ```
-from tensorflow.keras.models imports load_model
+from tensorflow.keras.models import load_model
 
 new_model = load_model('my_model') #filepath
 new_model.summary
