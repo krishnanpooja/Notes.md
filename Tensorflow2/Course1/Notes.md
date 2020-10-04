@@ -295,6 +295,7 @@ new_model.summary
 from tensorflow.keras.applications.resnet50 import ResNet50
 
 model = Resnet50(weights='imagenet',include_top=True) #complete model including the classification layer
+```
 
 **TensorFlow hub**
 
