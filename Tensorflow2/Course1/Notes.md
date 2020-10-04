@@ -244,3 +244,67 @@ tf.keras.callbacks.ReduceLROnPlateau(
             min_lr=0)
 ```
 The ReduceLROnPlateau callback allows reduction of the learning rate when a metric has stopped improving. The arguments are similar to those used in the EarlyStopping callback.
+
+### Week 4 - Saving and loading model weights
+
+```
+from tensorflow.keras.callbacks import ModelCheckpoint
+checkpoint = ModelCheckpoint('my_model.{epoch}.{batch}',save_weights_only=True,save_freq=1000,save_best_only=True,monitor='val_loss',mode='min') #save_freq is the # of samples that the model has seen.
+```
+or
+```
+model.save_weights('my_model')
+```
+
+checkpoint
+This file is by far the smallest, at only 87 bytes. It's actually so small that we can just look at it directly. It's a human readable file with the following text:
+
+model_checkpoint_path: "checkpoint"
+all_model_checkpoint_paths: "checkpoint"
+This is metadata that indicates where the actual model data is stored.
+
+checkpoint.index
+This file tells TensorFlow which weights are stored where. When running models on distributed systems, there may be different shards, meaning the full model may have to be recomposed from multiple sources. In the last notebook, you created a single model on a single machine, so there is only one shard and all weights are stored in the same place.
+
+checkpoint.data-00000-of-00001
+This file contains the actual weights from the model. It is by far the largest of the 3 files. Recall that the model you trained had around 14000 parameters, meaning this file is roughly 12 bytes per saved weight.
+to load the weights:
+
+
+**Load weights**
+```
+model.load_weights('my_model')
+```
+
+**When you save the whole model:** 
+Architecture + weights
+. Assets folder - Contans files for tensorboard
+. Variables folder -Contains the saved weights of the model
+. saved_model.pb - Tensorflow graph
+
+**To load the model**
+```
+from tensorflow.keras.models imports load_model
+
+new_model = load_model('my_model') #filepath
+new_model.summary
+```
+
+**To load pretrained model**
+```
+from tensorflow.keras.applications.resnet50 import ResNet50
+
+model = Resnet50(weights='imagenet',include_top=True) #complete model including the classification layer
+
+**TensorFlow hub**
+
+Seperate library
+```
+import tensorflow_hub as hub
+
+module = load_model(path)
+model = Sequential(hub.KerasLayer(module))
+model.build(input_shape=[None,160,160,3])
+model.summary()
+```
+Parameters are non-trainable i.e, only forward pass possible
