@@ -80,11 +80,12 @@ print(model.layers[1].get_weights())
 print(model.get_layer('layer_name').bias)
 ```
 
+**Transfer Learning**
 ```
 print(model.get_layer('layer_name').input)
 print(model.get_layer('layer_name').output) #every layer has input and output so does the model
 
-#Transfer Learning
+
 model2 = Model(inputs = model.input,outputs = model.get_layer('flatten_layer').output) #if you want to skip the final sigmoid layer and create a new model
 
 model3 = Sequential([model2,
