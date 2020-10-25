@@ -92,3 +92,41 @@ model3 = Sequential([model2,
           Dense(10,activation='softmax'])    
           
 ```
+**Freezing layers**
+
+Freeze conv layer by setting the trainable to False
+```
+h = Conv2D(16,3,actvation='relu',name='cov2d',trainable = False)(inputs)
+```
+or
+```
+model.get_layer('conv2d').trainable = False
+```
+or
+freeze the whole model
+```
+model = load_weight('trained_model.pt')
+model.trainable = False 
+flatten_output = model.get_layer('flatten_layer').output
+new_output = Dense(5,activation='softmax',name=new_softmax_layer')(flatten_output)
+new_model = Model(inputs = model.input, outputs=new_outputs)
+new_model.compile(loss='sparse_categorical_entropy')
+new_model.fit(X_train,y_train.epochs=10)
+```
+**Device Placement**
+
+```
+tf.config.list_physical_devices()
+
+# Get the GPU device name
+tf.test.gpu_device_name()
+
+if tf.config.experimental.list_physical_devices("GPU"):
+    print("On GPU:")
+    with tf.device("GPU:0"): 
+        x = tf.random.uniform([1000, 1000])
+        assert x.device.endswith("GPU:0")
+        time_matadd(x)
+        time_matmul(x)
+```
+
