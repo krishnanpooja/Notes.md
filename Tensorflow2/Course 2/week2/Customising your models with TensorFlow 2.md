@@ -1,6 +1,6 @@
 ## Course 2 
 
-### Week 1 - Introduction
+### Week 2 - Functional API, tf.Data
 
 **Functional API**
 
