@@ -47,3 +47,21 @@ outputs = Dense(5, activation='softmax')(h)  #(None, 5)
 
 model = Model(inputs,outputs)
 ```
+merge_mode deals with how the output layers are combined. It could take value like sum, null, concat.
+
+
+```
+
+max_index_val = max(imbd_word_index.value())
+model = tf.keras.Sequential([
+                              tf.keras.layers.Embedding(input_dim=max_index_val+1, output_dim = embedding_dim. mask_zero=True),
+                              tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(units=32, return_sequences=True),merge_mode = 'sum',
+                                                             backward_layer = tf.keras.layer.GRU(units=8, go_backwards=True)),
+                              tf.keras.layers.Dense(units=1, activation='sigmoid')
+                          ])                 
+
+```
+
+ the internal state of the stateful RNN after processing each batch is the same as it was earlier when we processed the entire sequence at once.
+
+This property can be used when training stateful RNNs, if we ensure that each example in a batch is a continuation of the same sequence as the corresponding example in the previous batch.
