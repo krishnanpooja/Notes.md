@@ -49,3 +49,22 @@ with tf.GradientTape() as tape:
     z = 2 * tf.reduce_sum(y)
     dz_dx = tape.gradient(z, x)
 ```
+
+Train the model
+```
+learning_rate = 0.05
+steps = 25
+
+for i in range(25):
+    with tf.GradientTape() as tape:
+        predictions  = linear_regression(x_train) # model function that computes y=mx+c
+        loss = SquaredError(predictions, y_train)
+        
+    gradients = tape.gradient(loss, linear_regression.trainable_variables)
+    
+    linear_regression.m.assign_sub(learning_rate * gradients[0])
+    linear_regression.b.assign_sub(learning_rate * gradients[1])
+    
+    print("Steps %d, Loss:%f".format(i,loss.numpy()))
+```
+    
