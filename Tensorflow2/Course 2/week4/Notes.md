@@ -37,4 +37,15 @@ class LinearMap(Layer):
 linear_layer = LinearMap(3,2)
 print(linear_layer) # w_init values
 ```
+**Automatic Differentiation**
+```
+import tensorflow as tf
 
+x = tf.constant([-1, 0, 1], dtype=tf.float32)
+
+with tf.GradientTape() as tape:
+    tape.watch(x)
+    y = tf.math.exp(x)
+    z = 2 * tf.reduce_sum(y)
+    dz_dx = tape.gradient(z, x)
+```
