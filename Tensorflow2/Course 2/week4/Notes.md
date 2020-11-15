@@ -86,3 +86,16 @@ for inputs, outputs in training_dataset:
     optimizer.apply_gradients(zip(grads, my_model.trainable_variables))
 ```
 
+**tf.function decorator**
+Convert programs into graphs easily without loosing out to eager computation
+Helps speed up the performance.
+```
+@tf.function
+.....
+
+```
+
+
+
+
+
