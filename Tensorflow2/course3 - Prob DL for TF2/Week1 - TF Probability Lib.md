@@ -14,7 +14,7 @@ import tensorflow_probability as tfp
  import tensorflow_probability as tfp
  
  tfd = tfp.distributions
- normal = tfd.Normal(loc=0.0, scale=1.)
+ normal = tfd.Normal(loc=0.0, scale=1.) #loc=mean and scale=std
  normal.sample() # returns a single sample basically a tensor
  normal.sample(3) # sample of length 3
  normal.prob(0.5)
@@ -32,4 +32,30 @@ import tensorflow_probability as tfp
  ```
  event_shape = captures the dimensionality of the random variable itself. Empty for univariate distribution
  
-  **Univariate Distributions**
+**Multivariate Distributions**
+ 
+ Multiple Random Variable
+  
+  ```
+import tensorflow as tf
+import tensorflow_probability as tfp
+ 
+tfd = tfp.distributions
+normal = tfd.MultivariateNormalDiag(loc=[-1.,0.5], scale_diag=[1.,1.5]) #loc=mean and scale=std event_shape -[2] -> 2D 
+normal.event_shape
+ 
+normal.sample(3) # [3,2] tensor
+normal.log_prob([-0.2,1.8]) #tf.Tensor(-2.938, hhape=(), dtype=float32)
+
+#batched multivariate distribution
+normal = tfd.MultivariateNormalDiag(loc=[[-1.,0.5], [2,0],[-0.5,1.5]], scale_diag=[[1.,1.5], [2,0.5],[1,1]]) 
+normal.sample(3) # (2,3,2) (sample_size,batch_size,event_shape)
+
+
+```
+ The batch_shape = [2] -> Univariate normal distribution
+ event_shape = [2] -> Multivariate normal distribution
+ 
+ Difference in evident when we check the log_prob. The Multivariate returns single tensor value and 
+ 
+  
