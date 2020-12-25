@@ -36,7 +36,7 @@ import tensorflow_probability as tfp
  
  Multiple Random Variable
   
-  ```
+```
 import tensorflow as tf
 import tensorflow_probability as tfp
  
@@ -56,6 +56,28 @@ normal.sample(3) # (2,3,2) (sample_size,batch_size,event_shape)
  The batch_shape = [2] -> Univariate normal distribution
  event_shape = [2] -> Multivariate normal distribution
  
- Difference in evident when we check the log_prob. The Multivariate returns single tensor value and 
+ Difference in evident when we check the log_prob. The Multivariate returns single tensor value.
+ 
+ **Independent Distribution**
+ 
+ Changes univariate into multi variate
+ 
+ ```
+import tensorflow as tf
+import tensorflow_probability as tfp
+ 
+tfd = tfp.distributions
+normal = tfd.Normal(loc=[-1.,0.5], scale=[1,1.5])
+independent_normal = tfd.Independent(normal, reinterpreted_batch_ndims=1) 
+# reinterpreted_batch_ndims says how many of the batch dim should be absorbed into the event space
+```
+
+**Naive Bayes Classifier**
+Each feature is independent given the class.
+
+
+
+
+
  
   
