@@ -32,6 +32,16 @@ Helps use more memory than the system actually has....
 - Mount - two processes are on different Mount namespaces - thereby, different filesystems
 - UTS namespace - different processes have different hostname vag@vag, though the processes are running on the same system
 - IPC -inter process communication -  `ipcs` ->lists the resources for the processes 
+- PID namespaces - lists of processes - nested PID namespace - child process will have a different PID in the root most host process list
+- Network namespace - Isolated firewall, protocol stacks, port numbers...
+- User namepace - userIDs and grp IDs, these are different from the user IDs and grp IDs outside the namespace. Like giving root access on completely different computer
 
-- 
+## Windows Container Types
+- Similar process and namespace technology.
+- Each process has its own registry, fs, network stack
+- hcsshim - Go adapter to set of APi's on windows
+
+
+
+
 
