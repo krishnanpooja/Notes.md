@@ -41,6 +41,45 @@ Helps use more memory than the system actually has....
 - Each process has its own registry, fs, network stack
 - hcsshim - Go adapter to set of APi's on windows
 
+### Image
+- create a new mount namespace `unshare -m bash` - filesystem where the namespace was created will be copied
+- `mount ` - detects already mounted filesystem
+
+## lxc-create 
+- delegates the work of creating a root filesystem for the containers
+- lxc- focuses on system container that has systemd running inside it. Services and user processes are running inside it.
+- App container has nginx running inside it -Docker focuses on this.
+- `docker nginx run` - downloads(pull), runs the nginx system (system with its own IP address, network)
+- union file system - merge multiple filesystem together
+
+## Nginx
+- has mulitple layers - OS, framework (nginx)
+- in container, we create another layer 'container' 
+- the multiple layers help in faster start times for the containers, multiple pods using the same images will consume less disk space and share page cache entries.
+- images are used to create a filesystem for a container 
+
+## Docker
+- Tag tab in Docker website provides the images security information(vulnerabilty). Done by using security scanning
+
+## OPEN 
+- specifications - Image and runtime specification
+- Image spec contains manifest file that points at series of layers and also points at the img config file - containing the env variables
+- OCI runtime is created by combining rootfs and config
+- containerD- current standards
+- vagrant - docker for VMs
+- rkt alternative to docker. Intel clear containers work on this. 
+
+## VM instead of container
+- Microsoft uses the concept of VMs over containers
+
+
+
+
+
+
+
+
+
 
 
 
