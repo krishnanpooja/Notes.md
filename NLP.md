@@ -136,17 +136,27 @@ Following are the common ways used for Text Extraction in NLP:
 	5.Topic Modeling
 
 **What is the meaning of Text Normalization in NLP?**
+
 Consider a situation in which we’re operating with a set of social media posts to find information events. Social media textual content may be very exceptional from the language we’d see in, say, newspapers. A phrase may be spelt in multiple ways, such as in shortened forms, (for instance, with and without hyphens), names are usually in lowercase, and so on. When we're developing NLP tools to work with such kinds of data, it’s beneficial to attain a canonical representation of textual content that captures these kinds of variations into one representation. This is referred to as text normalization
 
 **What is an ensemble method in NLP?**
+
 An ensemble approach is a methodology that derives an output or makes predictions by combining numerous independent similar or distinct models/weak learners. An ensemble can also be created by combining various models such as random forest, SVM, and logistic regression.
 Bias, variance, and noise, as we all know, have a negative impact on the mistakes and predictions of any machine learning model. Ensemble approaches are employed to overcome these drawbacks
 
 **What is RNN? LSTM and GRU?**
+
 vanilla RNN,
 long short-term memory (LSTM), proposed by Hochreiter and Schmidhuber in 1997, and
 gated recurrent units (GRU), proposed by Cho et. al in 2014.
 
 ![image](https://user-images.githubusercontent.com/8016149/167280572-f3da6d2b-82ef-4822-a942-b7bc72542e21.png)
+
+***What is vanishing gradient problem?***
+
+Ans: In RNN to train the network you backpropagate through time, at each step the gradient is calculated. The gradient is used to update weights in the network. If the effect of the previous layer on the current layer is small then the gradient value will be small and vice-versa. If the gradient of the previous layer is smaller then the gradient of the current layer will be even smaller. This makes the gradients exponentially shrink down as we backpropagate. Smaller gradient means it will not affect the weight updation. Due to this, the network does not learn the effect of earlier inputs. Thus, causing the short-term memory problem.
+LSTM
+![image](https://user-images.githubusercontent.com/8016149/167283059-129c312d-1115-40f2-a2e6-40a15ce68125.png)
+
 
 
