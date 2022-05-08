@@ -164,8 +164,8 @@ LSTM
 ![image](https://user-images.githubusercontent.com/8016149/167283059-129c312d-1115-40f2-a2e6-40a15ce68125.png)
 
 
-<a name="Tranformers"></a>
-## Tranformers
+<a name="Transformers"></a>
+## Transformers
 
 LSTM is slower and sequentially processes data. Transformers process data in parallel.
 
