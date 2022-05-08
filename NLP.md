@@ -1,3 +1,8 @@
+# Table of Contents
+1. [Transformers](#Transformers)
+
+
+
 **Any typical NLP problem can be proceeded as follows:**
 
 - Text gathering(web scraping or available datasets)
@@ -159,7 +164,7 @@ LSTM
 ![image](https://user-images.githubusercontent.com/8016149/167283059-129c312d-1115-40f2-a2e6-40a15ce68125.png)
 
 
-*Transformers*
+*Transformers* #Transformers
 
 LSTM is slower and sequentially processes data. Transformers process data in parallel.
 
@@ -186,8 +191,8 @@ What we want to do is take query q and find the most similar key k, by doing a d
 Then divide this product by the square root of the dimension of key vector.
 This step is done for better gradient flow which is specially important in cases when the value of the dot product in previous step is too big. As using them directly might push the softmax into regions with very little gradient flow.
 
-
-***The Transformer***
+#Transformers
+*The Transformer* 
 1. **Encoder**
 
 It takes in the input sequence (x1.. xn) parallely.
