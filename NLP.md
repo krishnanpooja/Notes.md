@@ -3,7 +3,7 @@
 - Text gathering(web scraping or available datasets)
 - Text cleaning(stemming, lemmatization)
 - Feature generation(Bag of words) 
-- Embedding and sentence representation(word2vec)
+- Embedding and sentence representation(word2vec- CBOW, Skig gram)
 - Training the model by leveraging neural nets or regression techniques
 - Model evaluation
 - Making adjustments to the model
@@ -124,4 +124,29 @@ CBOW: several times faster to train than the skip-gram, slightly better accuracy
 
 one-hot vector*embedding matrix = embedding vector for the word
 (this is fed into RNN for sentiment classification)
+
+**Text extraction and mining:**
+The process of extracting raw text from the input data by getting rid of all the other non-textual information, such as markup, metadata, etc., and converting the text to the required encoding format is called text extraction and cleanup.
+Following are the common ways used for Text Extraction in NLP:
+
+	1.Named Entity Recognition
+	2.Sentiment Analysis
+	3.Text Summarization
+	4.Aspect Mining
+	5.Topic Modeling
+
+**What is the meaning of Text Normalization in NLP?**
+Consider a situation in which we’re operating with a set of social media posts to find information events. Social media textual content may be very exceptional from the language we’d see in, say, newspapers. A phrase may be spelt in multiple ways, such as in shortened forms, (for instance, with and without hyphens), names are usually in lowercase, and so on. When we're developing NLP tools to work with such kinds of data, it’s beneficial to attain a canonical representation of textual content that captures these kinds of variations into one representation. This is referred to as text normalization
+
+**What is an ensemble method in NLP?**
+An ensemble approach is a methodology that derives an output or makes predictions by combining numerous independent similar or distinct models/weak learners. An ensemble can also be created by combining various models such as random forest, SVM, and logistic regression.
+Bias, variance, and noise, as we all know, have a negative impact on the mistakes and predictions of any machine learning model. Ensemble approaches are employed to overcome these drawbacks
+
+**What is RNN? LSTM and GRU?**
+vanilla RNN,
+long short-term memory (LSTM), proposed by Hochreiter and Schmidhuber in 1997, and
+gated recurrent units (GRU), proposed by Cho et. al in 2014.
+
+![image](https://user-images.githubusercontent.com/8016149/167280572-f3da6d2b-82ef-4822-a942-b7bc72542e21.png)
+
 
