@@ -1,4 +1,5 @@
 # Table of Contents
+1. [RNN, LSTM](#LSTM)
 1. [Transformers](#Transformers)
 
 
@@ -148,6 +149,10 @@ Consider a situation in which we’re operating with a set of social media posts
 
 An ensemble approach is a methodology that derives an output or makes predictions by combining numerous independent similar or distinct models/weak learners. An ensemble can also be created by combining various models such as random forest, SVM, and logistic regression.
 Bias, variance, and noise, as we all know, have a negative impact on the mistakes and predictions of any machine learning model. Ensemble approaches are employed to overcome these drawbacks
+
+
+<a name="LSTM"></a>
+## RNN LSTM GRU
 
 **What is RNN? LSTM and GRU?**
 
