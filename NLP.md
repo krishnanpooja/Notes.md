@@ -171,14 +171,24 @@ LSTM
 
 <a name="Transformers"></a>
 ## Transformers
+https://www.tensorflow.org/text/tutorials/transformer
 
 LSTM is slower and sequentially processes data. Transformers process data in parallel.
+It makes no assumptions about the temporal/spatial relationships across the data. This is ideal for processing a set of objects (for example, StarCraft units).
+Layer outputs can be calculated in parallel, instead of a series like an RNN.
+Distant items can affect each other's output without passing through many RNN-steps, or convolution layers (see Scene Memory Transformer for example).
+It can learn long-range dependencies. This is a challenge in many sequence tasks.
+
+The downsides of this architecture are:
+
+For a time-series, the output for a time-step is calculated from the entire history instead of only the inputs and current hidden-state. This may be less efficient.
+If the input does have a temporal/spatial relationship, like text, some positional encoding must be added or the model will effectively see a bag of words.
 
 The Transformer in NLP is a novel architecture that aims to solve sequence-to-sequence tasks while handling long-range dependencies with ease. It relies entirely on self-attention to compute representations of its input and output WITHOUT using sequence-aligned RNNs or convolution.
 
 **Self-Attention**
 
-Attention allowed us to focus on parts of our input sequence while we predicted our output sequence.
+the ability to attend to different positions of the input sequence to compute a representation of that sequence.
 The three kinds of Attention possible in a model:
 1.Encoder-Decoder Attention: Attention between the input sequence and the output sequence.
 2.Self attention in the input sequence: Attends to all the words in the input sequence.
@@ -190,6 +200,9 @@ The three kinds of Attention possible in a model:
 2. Key Vector: k= X * Wk. Think of this as an indexing mechanism for Value vector. Similar to how we have key-value pairs in hash maps, where keys are used to uniquely index the values.
 3.Value Vector: v= X * Wv. Think of this as the information in the input word.
 
+dk = tf.cast(tf.shape(k)[-1], tf.float32)
+For example, consider that Q and K have a mean of 0 and variance of 1. Their matrix multiplication will have a mean of 0 and variance of dk. So the square root of dk is used for scaling, so you get a consistent variance regardless of the value of dk. If the variance is too low the output may be too flat to optimize effectively. If the variance is too high the softmax may saturate at initialization making it difficult to learn.
+
 What we want to do is take query q and find the most similar key k, by doing a dot product for q and k. The closest query-key product will have the highest value, followed by a softmax that will drive the q.k with smaller values close to 0 and q.k with larger values towards 1. This softmax distribution is multiplied with v. The value vectors multiplied with ~1 will get more attention while the ones ~0 will get less. The sizes of these q, k and v vectors are referred to as “hidden size” by various implementation
 
 ![image](https://user-images.githubusercontent.com/8016149/167283288-558f09c5-2218-417e-bd3d-a2da4d514d37.png)
@@ -199,6 +212,8 @@ This step is done for better gradient flow which is specially important in cases
 
 #Transformers
 *The Transformer* 
+The input sentence is passed through N encoder layers that generates an output for each token in the sequence.
+The decoder attends to the encoder's output and its own input (self-attention) to predict the next word.
 1. **Encoder**
 
 It takes in the input sequence (x1.. xn) parallely.
@@ -217,3 +232,13 @@ Each decoder has three sub-layers.
 3. A simple, position-wise fully connected feed-forward network (think post-processing).
 
 ![image](https://user-images.githubusercontent.com/8016149/167283445-34ce9e7a-e1e8-417f-b54c-6d3f3a3ad190.png)
+
+![image](https://user-images.githubusercontent.com/8016149/167283613-297c469e-7d01-4e42-b822-ac83433bc043.png)
+
+**Input to transformers**
+This injected vector is called “positional encoding” and are added to the input embeddings at the bottoms of both encoder and decoder stacks.
+Decoder: This positional encoding + word embedding combo is then fed into a masked multi-headed self attention.
+The outputs from the encoder stack are then used as multiple sets of key vectors k and value vectors v, for the “encoder decoder attention”
+The q vector comes from the “output self attention” layer.
+
+
