@@ -159,4 +159,50 @@ LSTM
 ![image](https://user-images.githubusercontent.com/8016149/167283059-129c312d-1115-40f2-a2e6-40a15ce68125.png)
 
 
+*Transformers*
 
+LSTM is slower and sequentially processes data. Transformers process data in parallel.
+
+The Transformer in NLP is a novel architecture that aims to solve sequence-to-sequence tasks while handling long-range dependencies with ease. It relies entirely on self-attention to compute representations of its input and output WITHOUT using sequence-aligned RNNs or convolution.
+
+**Self-Attention**
+
+Attention allowed us to focus on parts of our input sequence while we predicted our output sequence.
+The three kinds of Attention possible in a model:
+1.Encoder-Decoder Attention: Attention between the input sequence and the output sequence.
+2.Self attention in the input sequence: Attends to all the words in the input sequence.
+3.Self attention in the output sequence: One thing we should be wary of here is that the scope of self attention is limited to the words that occur before a given word. This prevents any information leaks during the training of the model. This is done by masking the words that occur after it for each step. So for step 1, only the first word of the output sequence is NOT masked, for step 2, the first two words are NOT masked and so on.
+
+**Query, Key and Value**
+
+1. Query Vector: q= X * Wq. Think of this as the current word.
+2. Key Vector: k= X * Wk. Think of this as an indexing mechanism for Value vector. Similar to how we have key-value pairs in hash maps, where keys are used to uniquely index the values.
+3.Value Vector: v= X * Wv. Think of this as the information in the input word.
+
+What we want to do is take query q and find the most similar key k, by doing a dot product for q and k. The closest query-key product will have the highest value, followed by a softmax that will drive the q.k with smaller values close to 0 and q.k with larger values towards 1. This softmax distribution is multiplied with v. The value vectors multiplied with ~1 will get more attention while the ones ~0 will get less. The sizes of these q, k and v vectors are referred to as “hidden size” by various implementation
+
+![image](https://user-images.githubusercontent.com/8016149/167283288-558f09c5-2218-417e-bd3d-a2da4d514d37.png)
+
+Then divide this product by the square root of the dimension of key vector.
+This step is done for better gradient flow which is specially important in cases when the value of the dot product in previous step is too big. As using them directly might push the softmax into regions with very little gradient flow.
+
+
+***The Transformer***
+1. **Encoder**
+
+It takes in the input sequence (x1.. xn) parallely.
+Each encoder has two sub-layers.
+
+1.A multi-head self attention mechanism on the input vectors (Think parallelized and efficient sibling of self attention).
+2. A simple, position-wise fully connected feed-forward network (Think post-processing).
+
+2. **Decoder**
+
+It takes in the output sequence (y1..yn) paralley (thanks to multi-head attention)
+Each decoder has three sub-layers.
+
+1. A masked multi-head self attention mechanism on the output vectors of the previous iteration.
+2. A multi-head attention mechanism on the output from encoder and masked multi-headed attention in decoder.
+3. A simple, position-wise fully connected feed-forward network (think post-processing).
+
+![image](https://user-images.githubusercontent.com/8016149/167283445-34ce9e7a-e1e8-417f-b54c-6d3f3a3ad190.png)
