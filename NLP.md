@@ -236,9 +236,27 @@ Each decoder has three sub-layers.
 ![image](https://user-images.githubusercontent.com/8016149/167283613-297c469e-7d01-4e42-b822-ac83433bc043.png)
 
 **Input to transformers**
+
 This injected vector is called “positional encoding” and are added to the input embeddings at the bottoms of both encoder and decoder stacks.
 Decoder: This positional encoding + word embedding combo is then fed into a masked multi-headed self attention.
 The outputs from the encoder stack are then used as multiple sets of key vectors k and value vectors v, for the “encoder decoder attention”
 The q vector comes from the “output self attention” layer.
+
+**complexity of attention matrix in transformer?**
+
+When the original Attention paper was first introduced, it didn't require to calculate Q , V and K matrices, as the values were taken directly from the hidden states of the RNNs, and thus the complexity of Attention layer is O(n^2·d) 
+
+## Optimization
+
+1. Size reduction- Easier to download, store and less memory usage
+2. latency reduction- amt of time taken for a single inference
+3. Accelrator compatiblity - run on TPUs
+
+Optimization Techniques using Tensorflow Lite - Quantization, Pruning, Clustering
+
+**what is quantization? ways to do this?**
+
+Quantization works by reducing the precision of the numbers used to represent a model's parameters, which by default are 32-bit floating point numbers. This results in a smaller model size and faster computation.
+
 
 
