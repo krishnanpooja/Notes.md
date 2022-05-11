@@ -258,5 +258,7 @@ Optimization Techniques using Tensorflow Lite - Quantization, Pruning, Clusterin
 
 Quantization works by reducing the precision of the numbers used to represent a model's parameters, which by default are 32-bit floating point numbers. This results in a smaller model size and faster computation.
 
+** WER **
 
+Basically, WER is the number of errors divided by the total words. To get the WER, start by adding up the substitutions, insertions, and deletions that occur in a sequence of recognized words. Divide that number by the total number of words originally spoken. The result is the WER.
 
