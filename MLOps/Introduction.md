@@ -52,7 +52,9 @@ New analomous data at the production end. Example: model trained on adult voices
  - Rollback
   
 **shadow mode**: human inspector inspects the machine learnign models predictions
+  
 **Canary deployment**: provide only minimum (5%) of the data traffic to the model to predict on. helps recognise the problems in learning algorithm before hand.
+  
 **Blue green deployment**: the data traffic is sent to different versions of software, by the router. The old version called blue and the new version.  is called green. Easy to rollback.
  
 **Degree of automation**: human only-> shadow mode-> AI assitance (like drawing bounding boxes)-> partial automation -> full automation
