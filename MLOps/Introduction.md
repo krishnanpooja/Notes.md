@@ -11,12 +11,12 @@ Example: camera as part of edge device network, receives the photo of a phone (d
 - deployment - deploy and monitor & maintain the system
 
 #### Case Study: Speech Recognition
-#######Scoping
+###### Scoping
 - Voice Search
 - Key Metrics:
 --- Accuracy, latency, throughput
 
-####### Data
+###### Data
 - Data label consistency
 ---- Which of this sample is the correct transcription - um... todaty's weather, um today's weather, today's weather
 - how much <sil> before/after?
