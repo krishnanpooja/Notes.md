@@ -32,3 +32,6 @@ Example: camera as part of edge device network, receives the photo of a phone (d
   
 ## Concept or data drift
   New analomous data at the production end. Example: model trained on adult voices subjected to teenagers voice in production env degrades the system performance.
+  
+ ## Deployment 
+  
