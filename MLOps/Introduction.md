@@ -59,6 +59,17 @@ New analomous data at the production end. Example: model trained on adult voices
  
 **Degree of automation**: human only-> shadow mode-> AI assitance (like drawing bounding boxes)-> partial automation -> full automation
   
-  
+## Monitoring
+1. Dashboard to monitor the performance of machine learning systems - monitoring server load, not null values, user traffic 
+  monitor large number of metric and as you learn remove the unwanted meterics
+Software metrics- latency, througput 
+input metrics -input length, avg image brightness, avg # of null values
+output metrics - # times user does research, # times user used speech system first and switched to typing, 
+
+2. set thresholds or alarms - adapt metrics or thresholds over time
+3. manual retraining or automatic retraining
+
+  ## Pipeline monitoring 
+ 
   
   
