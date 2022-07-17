@@ -21,6 +21,7 @@ Problems faced:
  ##### Error analysis example
  - look through the wrongly predicted data and find params that could have gone wrong for that prediction- like low bandwidth, car noise, people noise
  etc.
- -iteratively brai storming on the error analysis
+ - iteratively brain storming on the error analysis
+ - z
  
  
