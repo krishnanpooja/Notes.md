@@ -22,6 +22,13 @@ Problems faced:
  - look through the wrongly predicted data and find params that could have gone wrong for that prediction- like low bandwidth, car noise, people noise
  etc.
  - iteratively brain storming on the error analysis
- - z
+ 
+ 
+ ### Performace Auditing 
+ Check for fairness/bias, accuracy and other possible problems
+ - mean accuracy for different genders and major accents
+ - check prevalance of offensive words in output
+ - 
+ 
  
  
