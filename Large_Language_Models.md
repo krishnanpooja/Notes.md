@@ -9,11 +9,11 @@ How do they work?
   - Capabilties- Generative, Transformation (text format to image), summarization, Question answering, conversation, classification-sorting, categorizing
   - GPT is cross functional- use one of capabilties or combine them and use
 
-  ***Prompt Basics***
+  ## Prompt Basics
   - Basic Prompt *(zero shot)*- like asking a question to the model.More descriptive, better output
   - *Few shot*-Example input and output. Showing the model what the desired output looks like
   - 
-  ***Controls***
+  ## Controls
   - Temperature- lower- determinisitic and higher value-more probablistic
   - Tokens and memory - Model breaks input and output into chunks called tokens. There is a limit to number of tokens the model can use at any time. Current solution for this include askign the model to make summaries of the chunks of the novel but this may lead to data loss.
 
