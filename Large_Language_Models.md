@@ -21,6 +21,7 @@ How do they work?
     - like asking for number of vacations days in general vs providing a profile of the person in Microsoft and asking for number of vacation days.
 
   ## UX Design
+  Continuous input and output loop
   - A collaborative UX puts an emphasis on augmentation over automation.
   - The collborative UX requires us to always position the user in the driving seat so they can confidently and iteratively guide the model
   - Customized input- Like in Outlook we might allow users to set the tone of their response with some pre-defined options like "serious"
@@ -34,3 +35,23 @@ How do they work?
   - Emphasize LLMs role and limitations -educate users on limitations like warn them about the risks of invesitng in stock market etc
   - Feedback- Report inappropriate outputs- 
 
+Other key moments:- Other than input and output
+- Pre-experience setting expectations- Make use of landing pages, pre-release narrativesand sig up mechanisms to help set the right expectations.
+ First experience- build appropriate trust
+
+## Content Guidance
+- Avoid Humanizing AI
+- When and how to use "we"
+  - We = AI+Customer
+  - We!=Microsoft
+- Useage of 'I'
+
+HAX toolkit- Human AI Experience 
+Guidelines:
+1. Make clear what the system can do
+2. Make clear how well the system can do what it can do
+3. Make clear why the system did what it did
+
+## LLM accessibilty
+- accessible without any discrimination to all
+- 
