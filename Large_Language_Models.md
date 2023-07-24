@@ -23,5 +23,14 @@ How do they work?
   ## UX Design
   - A collaborative UX puts an emphasis on augmentation over automation.
   - The collborative UX requires us to always position the user in the driving seat so they can confidently and iteratively guide the model
-  - 
+  - Customized input- Like in Outlook we might allow users to set the tone of their response with some pre-defined options like "serious"
+  - Show how how the inputs and outputs interact with each other
+  - keep history of inputs and outputs - like new output may make the results worse so user can use history to improve
+  - increase Friction- if a work can be done in 2 steps still force the users to cross check and slow users dowm as LLMs are probablistic
+  - Aloowing user to step in and edit from the output is a crucial ascpect of collaborative UX. It makes the model a Aumenter, helping the user and at the same time keeping them in driving seat
+  - LLMs can output wrong/inaccurate information which can be difficult to spot. Consider ways to flag potiential mismatches or issues between the source and LLM output.
+  - Use citations- can control hallucinations to some extent that it gets from pre trained data
+  - Encourage fact checking-power users to fact check without spending tons of time on it.
+  - Emphasize LLMs role and limitations -educate users on limitations like warn them about the risks of invesitng in stock market etc
+  - Feedback- Report inappropriate outputs- 
 
