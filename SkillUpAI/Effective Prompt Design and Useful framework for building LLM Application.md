@@ -21,4 +21,22 @@ Difference of ChatGPT from previous GPT version - *how it takes input*
   4.  Frequency penalty- if you don't want it to repeat set it to 0
   5.  Presence penalty - if you don't want it to genearte same words as in prompt set it to 0.
 
+## Prompt Chaining 
+Entity Extraction -> entity are extracted 
+Summarization-> prompt sumaarizes the the output from entity
+Sentiment Analysis-> output from summary is used to figure out sentiment
+
+## Meta Prompt
+Advanced way of writing prompts
+1. The conversational agent whose code name is Dana -> what is expected of the agent, features like what she understands
+2. Capabilties of the agent -> like repsonses should be informational and logical
+3. where it can gather information from -> whether it can access DBs, API etc
+4. Safety matters for responsible AI
+
++
+
+Prompt 
+ex:- write tagline for ice cream shop
+
+Result: Scoops of heaven in heart of Phenoix
 
