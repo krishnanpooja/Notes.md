@@ -12,6 +12,7 @@ How do they work?
   ## Prompt Basics
   - Basic Prompt *(zero shot)*- like asking a question to the model.More descriptive, better output
   - *Few shot*-Example input and output. Showing the model what the desired output looks like
+  - Fine Tuning - The model is trained via repeated gradient updates using a large corpus of example tasks
   - 
   ## Controls
   - Temperature- lower- determinisitic and higher value-more probablistic
