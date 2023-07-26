@@ -11,7 +11,7 @@ Difference of ChatGPT from previous GPT version - *how it takes input*
 - like for few shot, the classification task can be biased in the order of the labels. You can reduce importance of a class which is oversampled by mentioning it in the beginning
 - 5. Chain of thought prompting - Instruct the model to proceed step-by-step and present all the steps involved
 
-  # Model Parameters - Based on OpenAI Studio
+## Model Parameters - Based on OpenAI Studio
   Adjust these parameters to improve model behaavior
   1. Max response - Doesn't affect quality of the repsonse. Just affects the cost and latency
   2. Temperature - Most important parameter.
@@ -20,3 +20,5 @@ Difference of ChatGPT from previous GPT version - *how it takes input*
   3. Toy P-How many tokens to take
   4.  Frequency penalty- if you don't want it to repeat set it to 0
   5.  Presence penalty - if you don't want it to genearte same words as in prompt set it to 0.
+
+
