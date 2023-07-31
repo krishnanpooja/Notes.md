@@ -238,3 +238,45 @@ def collect_messages(_):
 
 
 <img width="230" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/95d116c4-3013-4381-898e-763733125303">
+
+```
+messages =  context.copy()
+messages.append(
+{'role':'system', 'content':'create a json summary of the previous food order. Itemize the price for each item\
+ The fields should be 1) pizza, include size 2) list of toppings 3) list of drinks, include size   4) list of sides include size  5)total price '},    
+)
+ #The fields should be 1) pizza, price 2) list of toppings 3) list of drinks, include size include price  4) list of sides include size include price, 5)total price '},    
+
+response = get_completion_from_messages(messages, temperature=0)
+print(response)
+```
+__Output__
+```
+Sure! Here's a JSON summary of your food order:
+
+{
+  "pizza": {
+    "size": "12.95",
+    "toppings": ["extra cheese", "mushrooms"]
+  },
+  "drinks": [
+    {
+      "name": "coke",
+      "size": "3.00"
+    },
+    {
+      "name": "sprite",
+      "size": "2.00"
+    }
+  ],
+  "sides": [
+    {
+      "name": "fries",
+      "size": "4.50"
+    }
+  ],
+  "total_price": "25.45"
+}
+
+Please let me know if there's anything else you'd like to add to your order!
+```
