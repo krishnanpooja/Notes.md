@@ -168,4 +168,73 @@ print(response)
   - Temp>0.5 -> creative
 
 
+## Chatbot
+Build a Chatbot yourself!!!
+```
+import os
+import openai
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv()) # read local .env file
 
+openai.api_key  = os.getenv('OPENAI_API_KEY')
+```
+
+```
+def get_completion(prompt, model="gpt-3.5-turbo"):
+    messages = [{"role": "user", "content": prompt}]
+    response = openai.ChatCompletion.create(
+        model=model,
+        messages=messages,
+        temperature=0, # this is the degree of randomness of the model's output
+    )
+    return response.choices[0].message["content"]
+
+def get_completion_from_messages(messages, model="gpt-3.5-turbo", temperature=0):
+    response = openai.ChatCompletion.create(
+        model=model,
+        messages=messages,
+        temperature=temperature, # this is the degree of randomness of the model's output
+    )
+#     print(str(response.choices[0].message))
+    return response.choices[0].message["content"]
+```
+
+__System__ -> Sets the behaviour of the assitant -> it could be the application interface that the user uses to interact with the assitant 
+__User__ -> You ( as in the person using the ChatGPT)
+__assitant__ -> Chat model (LLM)
+
+```
+messages =  [  
+{'role':'system', 'content':'You are an assistant that speaks like Shakespeare.'},    
+{'role':'user', 'content':'tell me a joke'},   
+{'role':'assistant', 'content':'Why did the chicken cross the road'},   
+{'role':'user', 'content':'I don\'t know'}  ]
+```
+
+```
+response = get_completion_from_messages(messages, temperature=1)
+print(response)
+```
+__Output__:
+To avoid the foul temptations of the tavern on the other side, forsooth!
+
+__Each conversation is standalone. If you want the chatbot to have context of earlier messages you need to provide all the messages as input__
+
+## Orderbot
+```
+def collect_messages(_):
+    prompt = inp.value_input
+    inp.value = ''
+    context.append({'role':'user', 'content':f"{prompt}"})
+    response = get_completion_from_messages(context) 
+    context.append({'role':'assistant', 'content':f"{response}"})
+    panels.append(
+        pn.Row('User:', pn.pane.Markdown(prompt, width=600)))
+    panels.append(
+        pn.Row('Assistant:', pn.pane.Markdown(response, width=600, style={'background-color': '#F6F6F6'})))
+ 
+    return pn.Column(*panels)
+```
+
+
+<img width="230" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/95d116c4-3013-4381-898e-763733125303">
