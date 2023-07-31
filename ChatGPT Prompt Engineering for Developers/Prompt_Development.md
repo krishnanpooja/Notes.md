@@ -75,6 +75,70 @@ Review text: '''{lamp_review}'''
 response = get_completion(prompt)
 print(response)
 ```
+- Inferring topic -"Determine 5 topics being discussed in the following text..."
 
+## Transforming 
+Transforming input to a different format
+- Translating to different language
+- input to HTML and output in JSON
+```
+user_messages = [
+  "La performance du système est plus lente que d'habitude.",  # System performance is slower than normal         
+  "Mi monitor tiene píxeles que no se iluminan.",              # My monitor has pixels that are not lighting
+  "Il mio mouse non funziona",                                 # My mouse is not working
+  "Mój klawisz Ctrl jest zepsuty",                             # My keyboard has a broken control key
+  "我的屏幕在闪烁"                                               # My screen is flashing
+]
 
+for issue in user_messages:
+    prompt = f"Tell me what language this is: ```{issue}```"
+    lang = get_completion(prompt)
+    print(f"Original message ({lang}): {issue}")
+
+    prompt = f"""
+    Translate the following  text to English \
+    and Korean: ```{issue}```
+    """
+    response = get_completion(prompt)
+    print(response, "\n")
+```
+__Output__
+```
+Original message (The language is French.): La performance du système est plus lente que d'habitude.
+The performance of the system is slower than usual.
+
+시스템의 성능이 평소보다 느립니다. 
+
+Original message (The language is Spanish.): Mi monitor tiene píxeles que no se iluminan.
+English: "My monitor has pixels that do not light up."
+
+Korean: "내 모니터에는 밝아지지 않는 픽셀이 있습니다." 
+
+Original message (The language is Italian.): Il mio mouse non funziona
+English: "My mouse is not working."
+Korean: "내 마우스가 작동하지 않습니다." 
+...
+```
+
+- change the tone of the output
+- correct Grammatical errors
+  ```
+    prompt = f"""Proofread and correct the following text
+    and rewrite the corrected version. If you don't find
+    and errors, just say "No errors found". Don't use 
+    any punctuation around the text:
+    ```{t}```"""
+    response = get_completion(prompt)
+    print(response)
+  ```
+output:
+```
+The girl with the black and white puppies has a ball.
+No errors found.
+No errors found.
+There goes my freedom. They're going to bring their suitcases.
+You're going to need your notebook.
+That medicine affects my ability to sleep. Have you heard of the butterfly effect?
+This phrase is to check chatGPT for spelling ability.
+```
 
