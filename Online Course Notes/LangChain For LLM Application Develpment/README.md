@@ -4,11 +4,12 @@
 3. [Prompts](#Prompts)
 4. [Parser](#Parsers)
 5. [Memory](#Memory)
-## Introduction
+6. 
+# Introduction
 LangChain - Open Source Framework for buildig LLM applications
 Python and JS packages
 
-## Models, Prompts and Parsers
+# Models, Prompts and Parsers
 - Models- LLM
 - Prompts-style of input into the model
 - parsers- parsing the response from the model; to do things downstream
@@ -257,6 +258,48 @@ LLM is stateless. Each Transaction is independent.
 Chatbot appears to have memory by providing the full conversation as 'context'
 As conversation becomes long, the process becomes expensive.
 
+## ConversationBufferWindowMemory
+```
+from langchain.memory import ConversationBufferWindowMemory
+memory = ConversationBufferWindowMemory(k=1) 
+memory.save_context({"input": "Hi"},
+                    {"output": "What's up"})
+memory.save_context({"input": "Not much, just hanging"},
+                    {"output": "Cool"})
+memory.load_memory_variables({})
+```
+__OUTPUT__
+```
+{'history': 'Human: Not much, just hanging\nAI: Cool'}
+```
+
+## ConversationTokenBufferMemory
+
+```
+from langchain.memory import ConversationTokenBufferMemory
+from langchain.llms import OpenAI
+llm = ChatOpenAI(temperature=0.0)
+
+memory = ConversationTokenBufferMemory(llm=llm, max_token_limit=30) # different LLMs have different way of counting tokens so we need to pass the llm
+memory.save_context({"input": "AI is what?!"},
+                    {"output": "Amazing!"})
+memory.save_context({"input": "Backpropagation is what?"},
+                    {"output": "Beautiful!"})
+memory.save_context({"input": "Chatbots are what?"}, 
+                    {"output": "Charming!"}
+
+memory.load_memory_variables({})
+```
+__OUTPUT__
+```
+{'history': 'AI: Beautiful!\nHuman: Chatbots are what?\nAI: Charming!'}
+```
+
+## ConversationSummaryMemory
+
+```
+from langchain.memory import ConversationSummaryBufferMemory
+```
 
 
 
