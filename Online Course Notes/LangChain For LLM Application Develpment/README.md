@@ -1,7 +1,7 @@
 # Table of Contents
 1. [Introduction](#Introduction)
-2. [Models, Prompts and Parsers](#Models, Prompts and Parsers)
-2. 
+2. [Models, Prompts and Parsers](#Models,PromptsandParsers)
+3. 
 ## Introduction
 LangChain - Open Source Framework for buildig LLM applications
 Python and JS packages
