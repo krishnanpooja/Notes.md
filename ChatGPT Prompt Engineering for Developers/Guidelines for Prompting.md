@@ -1,6 +1,6 @@
 # Table of Contents
 1. [Provide clear instructions](#Provideclearinstructions) 
-1. [Give the model time to think](#Givethemodeltimetothink)  
+2. [Give the model time to think](#Givethemodeltimetothink)  
   
  **Principles**
  - Provide clear instructions- longer prompt could be more informative, 
