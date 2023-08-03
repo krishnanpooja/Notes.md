@@ -2,6 +2,7 @@
 1. [Introduction](#Introduction)
 2. [Models, Prompts and Parsers](#Models,PromptsandParsers)
 3. [Prompts](#Prompts)
+4. [Parser](#Parsers)
 ## Introduction
 LangChain - Open Source Framework for buildig LLM applications
 Python and JS packages
