@@ -108,12 +108,11 @@ customer_response = chat(customer_messages)
 ### Parsers
 Why do we need Parsers?
 - Even if the output is as follows
-  ```
+```
   {
   "gift": False,
   "delivery_days": 5,
-  "price_value": "pretty affordable!"
-}
+  "price_value": "pretty affordable!"}
 ```
 The type of this reponse is __str__
 So response.content.get('gift') -> returns an ERROR
