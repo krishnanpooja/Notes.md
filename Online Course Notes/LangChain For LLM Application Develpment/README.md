@@ -114,8 +114,7 @@ Why do we need Parsers?
   "delivery_days": 5,
   "price_value": "pretty affordable!"
 }
-  
-  ```
+```
 The type of this reponse is __str__
 So response.content.get('gift') -> returns an ERROR
 
