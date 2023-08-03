@@ -181,3 +181,72 @@ response = chat(messages)
 output_dict = output_parser.parse(response.content)
 output_dict.get('delivery_days')
 ```
+
+# Memory
+How do you remember previous part of the conversation
+
+## ConversationBufferMemory
+```
+import os
+
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv()) # read local .env file
+
+import warnings
+warnings.filterwarnings('ignore')
+```
+```
+from langchain.chat_models import ChatOpenAI
+from langchain.chains import ConversationChain
+from langchain.memory import ConversationBuffer
+```
+```
+llm = ChatOpenAI(temperature=0.0)
+memory = ConversationBufferMemory()
+conversation = ConversationChain(
+    llm=llm, 
+    memory = memory,
+    verbose=True
+)
+```
+```
+conversation.predict(input="Hi, my name is Andrew")
+```
+__OUTPUT__
+```
+Entering new ConversationChain chain...
+Prompt after formatting:
+The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know.
+
+Current conversation:
+
+Human: Hi, my name is Andrew
+AI:
+
+> Finished chain.
+"Hello Andrew! It's nice to meet you. How can I assist you today?"
+```
+
+```
+conversation.predict(input="What is 1+1?")
+conversation.predict(input="What is my name?")
+```
+```
+print(memory.buffer)
+```
+__OUTPUT__
+```
+print(memory.buffer)
+print(memory.buffer)
+Human: Hi, my name is Andrew
+AI: Hello Andrew! It's nice to meet you. How can I assist you today?
+Human: What is 1+1?
+AI: 1+1 is equal to 2.
+Human: What is my name?
+AI: Your name is Andrew.
+```
+
+
+
+
+
