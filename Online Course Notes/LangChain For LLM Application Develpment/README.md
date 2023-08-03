@@ -3,6 +3,7 @@
 2. [Models, Prompts and Parsers](#Models,PromptsandParsers)
 3. [Prompts](#Prompts)
 4. [Parser](#Parsers)
+5. [Memory](#Memory)
 ## Introduction
 LangChain - Open Source Framework for buildig LLM applications
 Python and JS packages
@@ -246,6 +247,15 @@ Human: What is my name?
 AI: Your name is Andrew.
 ```
 
+To add new things into the memory
+```
+memory.save_context({"input": "Hi"}, 
+                    {"output": "What's up"})
+```
+
+LLM is stateless. Each Transaction is independent.
+Chatbot appears to have memory by providing the full conversation as 'context'
+As conversation becomes long, the process becomes expensive.
 
 
 
