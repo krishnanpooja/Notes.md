@@ -115,6 +115,7 @@ Why do we need Parsers?
   "price_value": "pretty affordable!"}
 ```
 The type of this reponse is __str__
+
 So response.content.get('gift') -> returns an ERROR
 
 #### Parse the LLM output string into a Python dictionary
