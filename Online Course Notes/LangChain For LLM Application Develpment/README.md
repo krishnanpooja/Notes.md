@@ -356,6 +356,8 @@ chain.run(product)
 __OUTPUT__ : 
 'The Bed Royale'
 
+###  Sequential Chain
+#### Simple Sequential Chain
 ```
 from langchain.chains import SimpleSequentialChain
 ```
@@ -395,7 +397,7 @@ Royal Comfort Linens is a premium bedding company offering luxurious and comfort
 > Finished chain.
 'Royal Comfort Linens is a premium bedding company offering luxurious and comfortable linens for a peaceful and restful sleep.'
 ```
-###  Sequential Chain
+### Sequential Chain with multiple input and output
 ```
 from langchain.chains import SequentialChain
 ```
