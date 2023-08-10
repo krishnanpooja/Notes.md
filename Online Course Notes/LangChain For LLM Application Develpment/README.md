@@ -296,10 +296,36 @@ __OUTPUT__
 ```
 
 ## ConversationSummaryMemory
-
+LLM writes summary of the conversation so far.
 ```
 from langchain.memory import ConversationSummaryBufferMemory
+# create a long string
+schedule = "There is a meeting at 8am with your product team. \
+You will need your powerpoint presentation prepared. \
+9am-12pm have time to work on your LangChain \
+project which will go quickly because Langchain is such a powerful tool. \
+At Noon, lunch at the italian resturant with a customer who is driving \
+from over an hour away to meet you to understand the latest in AI. \
+Be sure to bring your laptop to show the latest LLM demo."
+
+memory = ConversationSummaryBufferMemory(llm=llm, max_token_limit=100)
+memory.save_context({"input": "Hello"}, {"output": "What's up"})
+memory.save_context({"input": "Not much, just hanging"},
+                    {"output": "Cool"})
+memory.save_context({"input": "What is on the schedule today?"}, 
+                    {"output": f"{schedule}"})
+memory.load_memory_variables({})
 ```
+__OUTPUT__: max token limit💯
+```
+{'history': 'System: The human and AI exchange greetings. The human asks about the schedule for the day. The AI provides a detailed schedule, including a meeting with the product team, work on the LangChain project, and a lunch meeting with a customer interested in AI. The AI emphasizes the importance of bringing a laptop to showcase the latest LLM demo during the lunch meeting.'}
+```
+
+### Additional Memory Types:
+1. Vector data memory: Stores text in a vector DB and retreives the most relevant blocks of text
+2. Entity memories: using LLM, it remembers details about specific entities
+3. Combination of memories like conversation memory+entity
+4. key:value format like in SQL
 
 
 
