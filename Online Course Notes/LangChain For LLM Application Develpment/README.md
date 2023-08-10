@@ -6,7 +6,7 @@
 5. [Memory](#Memory)
 6. [Chain](#Chain)
 # Introduction
-LangChain - Open Source Framework for buildig LLM applications
+LangChain - Open Source Framework for building LLM applications
 Python and JS packages
 
 # Models, Prompts and Parsers
@@ -333,7 +333,7 @@ __OUTPUT__: max token limit💯
    - Sequential Chains
         - SimpleSequentialChain
         - SequentialChain
-    -Router Chain
+    - Router Chain
 ### LLM Chain
 Combination of LLM and prompt
 
