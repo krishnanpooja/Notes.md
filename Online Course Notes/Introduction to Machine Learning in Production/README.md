@@ -8,4 +8,6 @@
 
 
 ## The Machine Learning Project Lifecycle
-
+Two major problem:
+1. concept drift or data drift - where a new example is seen that model was not trained on
+2. ML code is way smaller than actual deployment production code as it contains info like feature extraction, data verification, analysis tool etc.
