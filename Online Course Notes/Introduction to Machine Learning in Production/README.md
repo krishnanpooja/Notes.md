@@ -32,3 +32,16 @@ Two major problem:
 4. Deployment - Deploy in production
             - Monitor and maintain the system
 
+### Deployment
+Major problems:
+1. Concept Drift - if X->Y relation changes. Ex:- due to inflation the price of the house 'of same size' changes
+2. Data drift - if X changes. i.e, if a person say an actor becomes very famous suddenly.
+3. Software Engineering issues -
+Points to consider when building software applications:
+   1. Realtime or batch decision-like fast predicition in 100ms or overnight computation
+   2. Run on Edge/web browser or cloud -(Edge-loal system that can be used without wifi)
+   3. Compute resources (CPU/GPU/memory)
+   4. latency, throughtput (queries per second)
+   5. logging - log data for analysis
+   6. security and privacy
+      
