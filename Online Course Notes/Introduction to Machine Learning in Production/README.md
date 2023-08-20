@@ -36,6 +36,11 @@ Two major problem:
 Major problems:
 1. Concept Drift - if X->Y relation changes. Ex:- due to inflation the price of the house 'of same size' changes
 2. Data drift - if X changes. i.e, if a person say an actor becomes very famous suddenly.
+            To get back on track, we need to retrain the model. Approaches vary:
+            1.Retrain the model using all available data, both before and after the change.
+            2.Use everything, but assign higher weights to the new data so that model gives priority to the recent patterns.
+            3. If enough new data is collected, we can simply drop the past.
+
 3. Software Engineering issues -
 Points to consider when building software applications:
    1. Realtime or batch decision-like fast predicition in 100ms or overnight computation
