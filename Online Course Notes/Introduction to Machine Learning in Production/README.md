@@ -45,3 +45,16 @@ Points to consider when building software applications:
    5. logging - log data for analysis
    6. security and privacy
       
+### Deployment Patterns
+1. Shadow mode deployment- where the learning algo shadow's the human. This helps in collecting data and verify the performance of the algo before deploying it
+2. Canary deployment-Roll out small traffic initially and ramp up traffic gradually
+3. Blue green deployment - Old or blue version is the older version of the software. In this pattern, there exists a 'router' that routes the images/data samples to  blue version of software and then suddenly shifts to the new version. ADVANTAGE:- Easy rollback in case of errors.
+
+### Monitoring
+how to monitor a machine learning system?
+1. Dashboard- like
+             - Software metrics - log server load, franction of non-null outputs
+             - input metrics like Avg input length, avg input volume
+             - output metrics - # times return "", # times the suer redoes search
+2. 
+5. 
