@@ -56,5 +56,19 @@ how to monitor a machine learning system?
              - Software metrics - log server load, franction of non-null outputs
              - input metrics like Avg input length, avg input volume
              - output metrics - # times return "", # times the suer redoes search
-2. 
-5. 
+   - threshold need to be set to trogger alarm
+
+### Pipeline Monitoring
+VAD- Voice Activity Detection - module recognises if someone is talking - it reduces the bandwidth sent to the cloud server
+
+### Metrics to Monitor
+#### Monitor
+1. Software metrics
+2. Input metrics
+3. output metrics
+
+#### How quickly does the data change?
+User data generally changes slowy. Exception example covid-19 caused change in people's shopping behaviour
+Enterprise data can change quickly - like factory data etc.
+
+
