@@ -76,4 +76,7 @@ VAD- Voice Activity Detection - module recognises if someone is talking - it red
 User data generally changes slowy. Exception example covid-19 caused change in people's shopping behaviour
 Enterprise data can change quickly - like factory data etc.
 
+## Week2-Modeling Overview
+
+#### Key Challenges
 
