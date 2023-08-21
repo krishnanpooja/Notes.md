@@ -88,7 +88,19 @@ We need to be careful about:
 3. rare data
   - skewed data distribution like we have 99% negative and 1% positive data - then the model would be equivalent to print("0"), which would give 99% accuracy
 
- 
+ ### Baseline
+ Human Level Performace (HLP) can be used as baseline to compare the model results in order to better understand where to improve the model.
+ HLP is mostly used as baseline in Unstructured data like Image, audio, text etc.
+ HLP is not much useful on structured data like excel sheets
+
+ Ways to establish baseline
+ 1. HLP
+ 2.  Literature search for state of art
+ 3.  quick ad dirty implementation
+ 4.  Performance of older system
+
+Sanity check for code and algo:
+1. Try to overfit on a small training dataset before training on a large one
 
 
 
