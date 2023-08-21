@@ -77,6 +77,18 @@ User data generally changes slowy. Exception example covid-19 caused change in p
 Enterprise data can change quickly - like factory data etc.
 
 ## Week2-Modeling Overview
+for deployment the model shoud perform well on 
+1. training set
+2. dev/test set
+3. business metrics/project goals
 
-#### Key Challenges
+We need to be careful about:
+1. Performance on key slices of the dataset like not discriminate based on ethinicity etc
+2. Performance on disporportionate important examples like navigational queries- "stanford"- here its expected to take you to standford.edu, any other recommendation would be considered bad
+3. rare data
+  - skewed data distribution like we have 99% negative and 1% positive data - then the model would be equivalent to print("0"), which would give 99% accuracy
+
+ 
+
+
 
