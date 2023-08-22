@@ -103,4 +103,17 @@ Sanity check for code and algo:
 1. Try to overfit on a small training dataset before training on a large one
 
 
+### Error Analysis and Performance Auditing
+- Its an interative process
+- Priortizing what to work on
+  - compare to the baseline performance, check what % of data comes under this tag and then decide hich factor is better to work on
+  - how frequently that category appears
+  - how east is to imrpove acc in that category
+  - how important it is to imporve in that category
+
+### Skewed Dataset
+if 99% of items are good and 1% is bad in this case avg accuracy is not a good metric. As any model which prints "good" will give 99% accuracy.
+In this case, we use __Confusion Matrix__ and calculate precision and recall
+__Precision__ = TP / (TP+FP)
+__Recall__ = TP / (TP+FN)
 
