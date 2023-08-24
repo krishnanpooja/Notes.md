@@ -118,3 +118,14 @@ __Precision__ = TP / (TP+FP)
 __Recall__ = TP / (TP+FN)
 __F1Score__ = 2/ (1/P)+(1/R)
 
+__Model Centric Development__ - Hold data fixed and iteratively improve the code/model
+__Data Centric Development__ - Use tools to improve the data quality and test on different models.
+
+#### Data Augmentation
+Goal: Create realistic examples that the algo does poorly on but HLP is good
+
+For unstructured data problems:
+1. if the model is large (low bias)
+2. the mapping x->y is clear
+ Then, adding data rarely huts accuracy
+   
