@@ -116,4 +116,5 @@ if 99% of items are good and 1% is bad in this case avg accuracy is not a good m
 In this case, we use __Confusion Matrix__ and calculate precision and recall
 __Precision__ = TP / (TP+FP)
 __Recall__ = TP / (TP+FN)
+__F1Score__ = 2/ (1/P)+(1/R)
 
