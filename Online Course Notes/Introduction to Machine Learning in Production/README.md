@@ -129,3 +129,5 @@ For unstructured data problems:
 2. the mapping x->y is clear
  Then, adding data rarely huts accuracy
    
+In case of structured data, adding features is more useful than augmenting with new examples
+
