@@ -143,6 +143,15 @@ Improving label Consistency
  When the label y comes from human label, HLP<<100% may indicate ambiguous labeling instructions
  Cleaner data will improve HLP and also learning algo ability to predict correctly
  
+ #### Data Pipeline or Data Cascades
+ Tools used for this Tensorflow Transform, Apache Beam, Airflow
+ It helps replicate data cleaning process used during testing for production as well
+ - Data Provenance- where the data came from. KEeping extensive documentation helps maintain this information
+ - Meta-data - data about data
+
+#### Split data into train, dev and test set
+Balanced split- dataset is true representative of the data distribution
+
  
  
 
