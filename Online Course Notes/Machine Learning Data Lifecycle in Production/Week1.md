@@ -26,5 +26,7 @@ Modern Software Development concepts applied in ML pipelines:
 ML pipelines are directed acyclic graphs (DAGS) (graphs without any circles)
 
 <img width="952" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/41748799-4b9e-4628-b56e-5283876ba023">
-![image](https://github.com/krishnanpooja/Notes.md/assets/8016149/4da8efcf-983d-489d-bfdf-c004d7caac4f)
+
+<img width="788" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/ce7041a2-a816-4d0c-bb56-bc3a4b7d344a">
+
 
