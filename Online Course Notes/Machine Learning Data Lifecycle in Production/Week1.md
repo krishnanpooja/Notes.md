@@ -29,4 +29,24 @@ ML pipelines are directed acyclic graphs (DAGS) (graphs without any circles)
 
 <img width="788" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/ce7041a2-a816-4d0c-bb56-bc3a4b7d344a">
 
+### Collect Data
+Quality of model depends on the quality of data
+
+1. Understand the user. The user needs is converted into data needs, feature needs, label needs
+2. Get to know your data.
+     - Identify data sources
+     - check if they are refreshed
+     - consistency for values, units and data types
+     - monitor outliers ad errors
+
+#### Dataset issues
+1. Inconsistent formatting -like zero , 0 , 0.0
+2. Compounding errors from other ML models
+3. Monitor data sources for system issues and outages
+
+Feature Engineering helps maximiize the predictive signals
+Feature selection helps to measure the predictive signals
+
+
+
 
