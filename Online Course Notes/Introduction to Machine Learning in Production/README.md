@@ -131,3 +131,18 @@ For unstructured data problems:
    
 In case of structured data, adding features is more useful than augmenting with new examples
 
+## Week3 - Data
+#### Data Definition and Establish baseline
+Improving label Consistency
+1. Have multiple labelers label some example
+2. when in disagreement get expert advice
+3. if x does'nt contain enough info, consider changing x
+4. iterate until its hard to increase agreement any further
+
+ HLP is used to get baseline
+ When the label y comes from human label, HLP<<100% may indicate ambiguous labeling instructions
+ Cleaner data will improve HLP and also learning algo ability to predict correctly
+ 
+ 
+ 
+
