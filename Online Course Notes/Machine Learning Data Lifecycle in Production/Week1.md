@@ -47,6 +47,58 @@ Quality of model depends on the quality of data
 Feature Engineering helps maximiize the predictive signals
 Feature selection helps to measure the predictive signals
 
+#### Degraded Model Performance
+1. Slow- concept or data drift - over time things change and this could affect the perforamce of the system
+2. Fast - Bad sensor, bad los and bad softare update
+
+#### Data and concpet change
+###### Easy problems:
+- Ground Truth changes slowly(in matter of months/years)
+- Model retraining driven by:
+       - Model improvements, better data
+       - changes in softare and /or systems
+###### Harder Problems
+- Ground truth changes faster (in matter of weeks)
+- Model retraining driven by:
+       - Declining model performance
+       - Model improvements, better data
+       - changes in softare and /or systems
+   
+###### Really Hard Problems
+- Ground truth changes really fast (in matter of days,hours,min)
+- Model retraining driven by:
+       - Declining model performance
+       - Model improvements, better data
+       - changes in softare and /or systems
+   
+#### Process Feedback and Human Labeling
+Data Labeling:
+1. Process Feedback - Example: actual vs predicted click-through - label positive if predicted click-through=actual 
+2. Human Labeling -ex:- cardiologists labeling MRI images
+
+Process feedback- Open-Source log analysis tools
+1. Logstash - Ingests data from multitude of sources , transfroms it and sends to your fav "stash"
+2. Fluentd- Open source, unify data collection and consumption
+On cloud:
+1. BindPlane -google
+2. AWS ElasticSearch
+3. Azure Monitor
+
+Human Labeling:
+Peopele ("raters") to examine data and assign labels manually
+Slow , difficult and expensive process
+
+#### Detecting Data Issues
+##### Data Issues:
+__Drift__ - Changes in data over time such as data collected once a day
+__Skew__ - Difference between two static versions, or dif sources such training set and serving set
+
+Detecting data issues:
+1. Detecting schema skew - training and serving data do not conform to the same schema (like you may train on int but later get string or float)
+2. Detetcing Distribution skew- Dataset shift-> vovariate or concept shift
+3. Requires continuous evaluation
+
+<img width="482" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/4b9951e6-0240-4055-b99a-a7ff51ca2ede">
 
 
 
