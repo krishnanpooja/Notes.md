@@ -101,4 +101,21 @@ Detecting data issues:
 <img width="482" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/4b9951e6-0240-4055-b99a-a7ff51ca2ede">
 
 
+#### TensorFlow Data Validation(TFDV)
+<img width="869" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/2c5161e7-fb37-4c4b-8769-4b07fc71030b">
+  
+##### Schema Skew
+Serving and training data don't conform to same schema. int!=float
+
+##### Feature Skew
+Training feature values are different from serving feature values
+1. features values are modified btw training and skew time
+2. transformation applied only in one of the two instances
+
+#### Distribution skew
+Distribution btw the two is significantly different:
+1.fault sampling method during training
+2. diff data sources for training and serving data
+3. Trend, seasonality changes in data over time
+
 
