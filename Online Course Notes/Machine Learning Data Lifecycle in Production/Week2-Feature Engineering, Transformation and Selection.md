@@ -30,9 +30,11 @@ _Benefits_
 3. for each feature, model learns the right weights
 
 _Normalization_
+
 <img width="344" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/939706ea-a4fd-4395-a5cf-f4075b248aaa">
 
 _Standardization_ (Z score)
+
 <img width="535" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/45a6090d-c2b9-4550-82a9-6477254bfc0f">
 
 
