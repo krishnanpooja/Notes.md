@@ -45,7 +45,7 @@ _other Techiniques_
 1. PCA
 2. t-SNE
 
-
+#### Feature Transformation at Scale
 ### Feature Crossing
 Combine multiple features together into a new feature
 - Encodes nonlinearlity in the feature space or encodes the same information in fewer feaatures
