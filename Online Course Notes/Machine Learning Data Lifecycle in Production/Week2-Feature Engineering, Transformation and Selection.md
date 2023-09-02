@@ -75,7 +75,7 @@ Graph in left for feature Eng, analysis across dataset to collect constants to a
 # Ignore the warnings
 tf.get_logger().setLevel('ERROR')
 
-# a temporary directory is needed when analyzing the data
+#a temporary directory is needed when analyzing the data
 with tft_beam.Context(temp_dir=tempfile.mkdtemp()):
     
     # define the pipeline using Apache Beam syntax
@@ -86,10 +86,10 @@ with tft_beam.Context(temp_dir=tempfile.mkdtemp()):
             preprocessing_fn)
     )
 
-# unpack the transformed dataset
+#unpack the transformed dataset
 transformed_data, transformed_metadata = transformed_dataset
 
-# print the results
+#print the results
 print('\nRaw data:\n{}\n'.format(pprint.pformat(raw_data)))
 print('Transformed data:\n{}'.format(pprint.pformat(transformed_data)))
 ```
