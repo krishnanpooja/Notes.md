@@ -71,11 +71,12 @@ Graph in left for feature Eng, analysis across dataset to collect constants to a
 ## Steps involved in transforming raw data
 <img width="865" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/080ae4e3-32c9-4968-bb6c-6c8fb903fe9b">
 <img width="878" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/cb200002-0e92-4f1b-929f-4f3afd3fe742">
+
 ```
 # Ignore the warnings
 tf.get_logger().setLevel('ERROR')
 
-#a temporary directory is needed when analyzing the data
+a temporary directory is needed when analyzing the data
 with tft_beam.Context(temp_dir=tempfile.mkdtemp()):
     
     # define the pipeline using Apache Beam syntax
@@ -86,10 +87,10 @@ with tft_beam.Context(temp_dir=tempfile.mkdtemp()):
             preprocessing_fn)
     )
 
-#unpack the transformed dataset
+unpack the transformed dataset
 transformed_data, transformed_metadata = transformed_dataset
 
-#print the results
+print the results
 print('\nRaw data:\n{}\n'.format(pprint.pformat(raw_data)))
 print('Transformed data:\n{}'.format(pprint.pformat(transformed_data)))
 ```
