@@ -51,5 +51,20 @@ Combine multiple features together into a new feature
 - Encodes nonlinearlity in the feature space or encodes the same information in fewer feaatures
 - [AxB]: multiplying the values of two features
 
+## Preprocessing at Scale
+### Tensorflow Transform
+Statistic Gen- computes statistics like mean etc.. 
+Transform compnent does the featre engineering. 
 
-  
+<img width="929" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/df2fcd7e-15db-4e86-881c-043753e03fda">
+The transform graph contains the transform operations performed on the data and transform data is the output.
+
+<img width="920" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/f7579fcc-c013-4b2c-a8b8-c15a65a88101">
+
+How Transfrom applies feature transfromations
+Graph in left for feature Eng, analysis across dataset to collect constants to apply to transform graph so as to transform induvidual examples on training data and the same can be applied on serving data. So no skew!
+<img width="910" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/fb0f9d19-85fe-493f-b2af-c38d6e57ed22">
+
+ <img width="933" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/d07edddf-815a-4f55-9851-67f56b10f9f6">
+ <img width="573" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/32ce3553-f190-4d4a-b0b5-cedb625b5921">
+
