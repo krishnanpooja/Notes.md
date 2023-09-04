@@ -101,3 +101,32 @@ infer a schema with __SchemaGen__
 detect anomalies in the evaluation data with __ExampleValidator__
 preprocess the data into features suitable for model training with __Transform__
 
+If several steps mentioned above sound familiar, it's because the TFX components that deal with data validation and analysis (i.e. StatisticsGen, SchemaGen, ExampleValidator) uses Tensorflow Data Validation (TFDV) under the hood.
+
+#### Create the Interactive Context
+When pushing to production, you want to automate the pipeline execution using orchestrators such as Apache Beam and Kubeflow. You will not be doing that just yet and will instead execute the pipeline from this notebook. When experimenting in a notebook environment, you will be manually executing the pipeline components (i.e. you are the orchestrator). For that, TFX provides the Interactive Context so you can step through each component and inspect its outputs.
+
+
+## Feature Selection
+#### Feature Space
+N dimensional space is defined by N features
+Not including the target label
+
+Ensure the feature space coverage :
+- Data affected by: seasonality, trend, data drift
+- serving data: new values in features and labels (concept drift)
+In these cases we need to reiterate the ML pipeline as the model needs to learn the new version
+
+#### Feature Selection
+- Identify the features that best represent the relationship
+- therby reducing the size of feature space (lentioned above0
+- thereby reducing the resource requirements and model complexity
+
+__Advantages__:
+1. reduce the storage cost
+2. reduce i/o requirements
+3. minimize training and inference costs
+
+<img width="422" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/b2002fcb-6bc6-4d24-a9a2-0a03813cb4dc">
+
+   
