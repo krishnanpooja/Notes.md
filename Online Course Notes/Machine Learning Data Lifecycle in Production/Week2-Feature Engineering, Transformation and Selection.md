@@ -94,3 +94,10 @@ print the results
 print('\nRaw data:\n{}\n'.format(pprint.pformat(raw_data)))
 print('Transformed data:\n{}'.format(pprint.pformat(transformed_data)))
 ```
+
+ingest data from a base directory with __ExampleGen__
+compute the statistics of the training data with __StatisticsGen__
+infer a schema with __SchemaGen__
+detect anomalies in the evaluation data with __ExampleValidator__
+preprocess the data into features suitable for model training with __Transform__
+
