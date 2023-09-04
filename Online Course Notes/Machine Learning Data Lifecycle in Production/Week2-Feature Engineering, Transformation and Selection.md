@@ -129,4 +129,10 @@ __Advantages__:
 
 <img width="822" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/b2002fcb-6bc6-4d24-a9a2-0a03813cb4dc">
 
-   
+#### Filter Methods
+- Correlated methods remove them!
+  
+<img width="921" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/7ed1de8a-60de-4eb4-830d-c6deb9c3bcd7">
+<img width="888" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/1b31c162-ac3f-4081-a2d6-190f5aa2190b">
+<img width="813" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/247381f9-875b-4252-b9dc-0f8b429a08f9">
+
