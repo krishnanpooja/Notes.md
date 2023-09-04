@@ -127,6 +127,6 @@ __Advantages__:
 2. reduce i/o requirements
 3. minimize training and inference costs
 
-<img width="422" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/b2002fcb-6bc6-4d24-a9a2-0a03813cb4dc">
+<img width="822" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/b2002fcb-6bc6-4d24-a9a2-0a03813cb4dc">
 
    
