@@ -1,1 +1,7 @@
 Understand the data journey over a production system’s lifecycle and leverage ML metadata and enterprise schemas to address quickly evolving data.
+- __Artifact__ - Each time a component produces a result, it generates an artifact. This includes basically everything that is produced by the pipeline, including the data in different stages of transformation, often as a result of feature engineering and the model itself and things like the schema, and metrics and so forth. Basically, everything that's produced, every result that is produced as an artifact.
+- __Data Provenance__ -The terms data provenance and data lineage are basically synonyms and they're used interchangeably. Data provenance or lineage is a sequence of the artifacts that are created as we move through the pipeline.
+                    - tracking those sequences is really key for debugging and understanding the training process and comparing different training runs that may happen months apart.
+
+- __Data lineage__is a great way for businesses and organizations to quickly determined how the Data has been used and which Transformations were performed as the Data moved through the pipeline. Data provenance is key to interpreting model results.
+- Data versioning - For one thing, because of the size of files that we deal with, which are typically or can be any way, much larger than a code file would ever be. Tools for data versioning are just starting to become available. These include DVC and Git LFS. LFS for large files Storage.
