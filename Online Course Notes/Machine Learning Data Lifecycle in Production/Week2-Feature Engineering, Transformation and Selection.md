@@ -127,7 +127,7 @@ __Advantages__:
 2. reduce i/o requirements
 3. minimize training and inference costs
 
-<img width="822" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/b2002fcb-6bc6-4d24-a9a2-0a03813cb4dc">
+<img width="601" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/ca613b5c-eff7-40cd-9469-8e207dc44dfe">
 
 #### Filter Methods
 - Correlated methods remove them!
@@ -135,4 +135,17 @@ __Advantages__:
 <img width="921" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/7ed1de8a-60de-4eb4-830d-c6deb9c3bcd7">
 <img width="888" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/1b31c162-ac3f-4081-a2d6-190f5aa2190b">
 <img width="813" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/247381f9-875b-4252-b9dc-0f8b429a08f9">
+
+#### Wrapper Methods
+<img width="881" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/1ffb1495-68f1-4078-888b-6291c7b474a6">
+<img width="827" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/a7871931-8018-42bf-9dd4-2a48c928ed2b">
+<img width="786" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/57f637ef-2306-4109-b441-531425c8eb2f">
+<img width="669" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/8f00d53a-658a-4c9d-820e-177ba4231d27">
+
+##### Embedded methods
+Depends on feature importance
+assign weight for features based on importance
+
+Recursive Feature Elimination is considered to give better result compared to other methods. But Feature Importance gives relatively good results with lower number of features.
+
 
