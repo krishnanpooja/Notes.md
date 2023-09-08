@@ -18,3 +18,15 @@ In addition to the executor where your code runs, each component also includes t
 An artifact is an elementary unit of data that gets fed into the ML metadata store and as the data is consumed as input or generated as output of each component. Next there are executions. Each execution is a record of any component run during the ML pipeline workflow, along with its associated runtime parameters. Any artifact or execution will be associated with only one type of component. Artifacts and executions can be clustered together for each type of component separately. This grouping is referred to as the context. A context may hold the metadata of the projects being run, experiments being conducted, details about pipelines, etc. Each of these units can hold additional data describing it in more detail using properties. Next there are types, previously, you've seen several types of units that get stored inside the ML metadata. Each type includes the properties of that type. Lastly, we have relationships. Relationships store the various units getting generated or consumed when interacting with other units. For example, an event is the record of a relationship between an artifact and an execution. So, ML metadata stores a wide range of information about the results of the components and execution runs of a pipeline. It stores artifacts and it stores the executions of each component in the pipeline. It also stores the lineage information for each artifact that is generated. All of this information is represented in metadata objects and this metadata is stored in a back end storage solution.
 
 <img width="952" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/596620a2-fd14-4654-9bab-2e1f7717d5cc">
+
+### Schema Development
+__Schema__ -  relational objects summarizing features in a given dataset project. like feature name, type, requrired or optional , valency etc
+
+Over time the data evolve and gets skewed to handle this the schema also gets hanged accordingly.
+The ML platform should have following features:
+1. reliabilty during data evolution
+2. scalabilty during evolution- large amt of data, variable traffic
+3. Anamoly detection - data errors, update data schema to accomodate valid changes
+4. Schema inspection "" - looking into schema versions, automate processes
+  
+6. 
