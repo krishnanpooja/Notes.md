@@ -4,7 +4,7 @@ Understand the data journey over a production system’s lifecycle and leverage 
                     - tracking those sequences is really key for debugging and understanding the training process and comparing different training runs that may happen months apart.
 
 - __Data lineage__ is a great way for businesses and organizations to quickly determined how the Data has been used and which Transformations were performed as the Data moved through the pipeline. Data provenance is key to interpreting model results.
-- Data versioning - For one thing, because of the size of files that we deal with, which are typically or can be any way, much larger than a code file would ever be. Tools for data versioning are just starting to become available. These include DVC and Git LFS. LFS for large files Storage.
+- __Data versioning__ - For one thing, because of the size of files that we deal with, which are typically or can be any way, much larger than a code file would ever be. Tools for data versioning are just starting to become available. These include DVC and Git LFS. LFS for large files Storage.
 
 ### Introduction to ML Metadata
 <img width="907" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/fd708abc-18fb-46c2-ae73-0f2aead7c9fa">
@@ -29,4 +29,9 @@ The ML platform should have following features:
 3. Anamoly detection - data errors, update data schema to accomodate valid changes
 4. Schema inspection "" - looking into schema versions, automate processes
   
-6. 
+Schema Environments
+Schema volves along with your business and data at times. Versionsing Schemas is important.
+
+<img width="708" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/e7055f56-4410-4051-8a0f-eb3bee7d6484">
+
+create different nviroments for different schemas like one for training with label and another for production (serving) without label
