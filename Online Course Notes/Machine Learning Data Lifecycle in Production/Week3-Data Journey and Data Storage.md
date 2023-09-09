@@ -29,13 +29,14 @@ The ML platform should have following features:
 3. Anamoly detection - data errors, update data schema to accomodate valid changes
 4. Schema inspection "" - looking into schema versions, automate processes
   
-Schema Environments
+### Schema Environments
 Schema volves along with your business and data at times. Versionsing Schemas is important.
 
 <img width="708" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/e7055f56-4410-4051-8a0f-eb3bee7d6484">
 
 create different nviroments for different schemas like one for training with label and another for production (serving) without label
 
+## Enterpise Data Storage
 ### Feature Stores
 A feature store is a central repository for storing documented, curated and access controlled features.
 - Using a feature store enables teams to share, discover and use highly curated features. A feature store makes it easy to discover and consume that feature and that can be both online or offline for both serving and training
@@ -66,3 +67,9 @@ __Advantages__:
 
 <img width="909" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/d904054a-bba0-46ac-9fb6-69356e710487">
 
+
+### Data Lakes
+A data lake is a system or repository of data stored in its natural and raw format, which is usually in the form of blobs or files.
+A data lake can include structured data like racial databases or semi-structured data like CSV files, or unstructured data like a collection of images or documents, and so forth. 
+
+<img width="794" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/8f0ccba4-dbc0-4acf-bb75-2ed0a576212a">
