@@ -35,3 +35,34 @@ Schema volves along with your business and data at times. Versionsing Schemas is
 <img width="708" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/e7055f56-4410-4051-8a0f-eb3bee7d6484">
 
 create different nviroments for different schemas like one for training with label and another for production (serving) without label
+
+### Feature Stores
+A feature store is a central repository for storing documented, curated and access controlled features.
+- Using a feature store enables teams to share, discover and use highly curated features. A feature store makes it easy to discover and consume that feature and that can be both online or offline for both serving and training
+- Feature Store helps store data can be used amongst different teams using same data but for different purpose
+- It acts as interface between Feature Engineering and model Engineering
+Advantages:
+1. Avoid duplication
+2. Control access
+3. purge
+4. offline feature processing
+5. online feature usage by precomputing and sotring for low latency access
+
+### Data Warehouses
+A data warehouse is a technology that aggregates data from one or more sources so that it can be processed and analyzed.
+- A data warehouse is usually meant for long running batch jobs and their storage is optimized for read operations.
+
+__Key Features__:
+  1.A data warehouse is subject oriented and the information that's stored in it revolves around a topic
+  2. The data in data warehouse may be collected from multiple types of sources, such as relational databases or files and so forth.
+  3.  The data collected in a data warehouse is usually timestamped to maintain the context of when it was generated.
+  4.  Data warehouses are nonvolatile, which means the previous versions of data are not erased when new data is added
+
+__Advantages__:
+1. data warehouses offer enhanced ability to analyze your data by time stamping your data.
+2. When you store your data in a data warehouse, it follows a consistent schema and that helps improve the data quality and consistency
+3. Studies have shown that the return on investment for data warehouses tend to be fairly high for many use cases
+4. the read and query efficiency from data warehouses is typically high, giving you fast access to your data.
+
+<img width="909" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/d904054a-bba0-46ac-9fb6-69356e710487">
+
