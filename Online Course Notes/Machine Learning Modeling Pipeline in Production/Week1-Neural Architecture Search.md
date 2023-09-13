@@ -13,5 +13,9 @@ Neural architecture search, or NAS, it's a technique for automating the design o
 - Models found by NAS are often on par with or outperform hand designed architectures for many types of problem.
 - The goal of NAS is to find the optimal architecture.
 - The Keras team has released one of the best, Keras Tuner, which is a library to easily perform hyperparameter tuning with TensorFlow 2.0.
+
+  ### Keras Auto Tuner
+ I'm using the Hyperband strategy. It also supports random search and Bayesian optimization and Sklearn strategies. You can learn more about these at the Keras tuner site at Keras-team.github.io/kerastuner.
+  
   
 
