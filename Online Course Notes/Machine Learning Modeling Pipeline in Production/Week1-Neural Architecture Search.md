@@ -8,3 +8,10 @@ __Learning Objectives__
 6. Carry out different metric calculations to assess AutoML efficacy
 7. Identify some cloud AutoML offerings and recognize their strengths and weaknesses
 
+## Neural Architecture Search
+Neural architecture search, or NAS, it's a technique for automating the design of neural networks. 
+- Models found by NAS are often on par with or outperform hand designed architectures for many types of problem.
+- The goal of NAS is to find the optimal architecture.
+- The Keras team has released one of the best, Keras Tuner, which is a library to easily perform hyperparameter tuning with TensorFlow 2.0.
+  
+
