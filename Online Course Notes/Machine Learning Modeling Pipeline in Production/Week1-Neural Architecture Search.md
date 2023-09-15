@@ -76,3 +76,62 @@ best_hps=tuner.get_best_hyperparameters()[0]
 h_model = tuner.hypermodel.build(best_hps)
 h_model.summary()
 ```
+
+## AutoML (Automated Machine Learning)
+
+AutoML automates the development of ML models
+- NAS is a subfield of AutoML
+- 
+3 main parts of NAS:-
+1. Search Space - Architecture is picked from this space 
+2. Search Strategy - how we explore the search space
+3. Performance Estimation Strategy- selected architecture is passed here which returns estimated performance
+
+
+#### Search Spaces
+1. Macro - Node is a layer in neural netwrok like pooling layer Contains induvidual layers and connection types like a chained structure or complex search space
+2. Micro - Cell based. Each cell is a samll network.
+   Types of cells:
+   1. Normal cell - on top
+   2. reduction cell - below
+   These cells are stacked to produce the final network. This search space is said to provide significant performance advantages.
+   
+
+#### Search Strategies
+For smaller search spaces:
+1. Grid search - Search everything in the grid
+2. Random search
+
+1. Bayesian Optimization -It assumes that a specific probability distribution, which is typically a Gaussian distribution is underlying the performance of model architectures. So you use observations from tested architectures to constrain the probability distribution and guide the selection of the next option.
+2. Evolutionary Method-  First, an initial population of n different model architecture is randomly generated, the performance of each individual.Then the X highest performers are selected as parents for a new generation. This new generation of architectures might be copies of the respective parents with induced random alterations or mutations. Or they might arise from combinations of the parents, the performance of the offspring is assessed. Again using the performance estimation strategy. The list of possible mutations can include operations like adding or removing a layer. Adding or removing a connection, changing the size of a layer or changing another hyper parameter. Y architectures are selected to be removed from the population. This might be the Y worst performers, the Y oldest individuals in the population. Or a selection of individuals based on a combination of these parameters. The offspring replaces the removed architectures and the process is restarted with this new population
+   
+ <img width="906" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/dfb46832-a4f9-43a3-8630-025c0dd2c96e">
+
+3. Reinforcement - Agents goal is to maximize the result.
+     - The available options are selected from the search space
+     - performance estimation determines the reward
+       
+ A neural network can also be specified by a variable length string where the elements of the string specify individual network layers.
+That enables us to use a recurrent neural network or RNN to generate that string, as we might do for an NLP model. The RNN that generates the string is referred to as the controller, after training the network referred to as the child network on real data. We can measure the accuracy on the validation set, the accuracy determines the reinforcement learning reward in this case. Based on the accuracy, we can compute the policy gradient to update the controller RNN. In the next iteration, the controller will have learned to give higher probabilities to architectures that result in higher accuracies during training. 
+
+
+#### Measuring AutoML Efficacy
+1. Lower Fidelity Estimates
+   - Reduces the training time by reframing the problem by making it easier to solve.
+   - this is done by using data subset, low resolution images, fewer filters and cells.
+   - This reduces the cost but underestimates the performance
+
+2. Learning Curve extrapolation
+  - Extrapolates based on initial learning
+  - requires predicting learning curve reliably
+  - helps remove poor performers
+
+3. Weight Inheritance/ Network Morphisms
+    - Initialize weights of new architectures based on prev trained architectures
+    - similar to transfer learning
+    - Underlying function remains unchanged
+      - New network inherits knowledge from parent netwrok
+      - Advantages:
+      -  computational speed up: a few days of GPU
+      -  Network size not inherently bounded
+  
