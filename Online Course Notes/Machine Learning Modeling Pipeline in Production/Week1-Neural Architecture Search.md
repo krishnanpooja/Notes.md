@@ -17,5 +17,62 @@ Neural architecture search, or NAS, it's a technique for automating the design o
   ### Keras Auto Tuner
  I'm using the Hyperband strategy. It also supports random search and Bayesian optimization and Sklearn strategies. You can learn more about these at the Keras tuner site at Keras-team.github.io/kerastuner.
   
-  
+ ```
+# Install Keras Tuner
+!pip install -q -U keras-tuner 
+```
 
+```
+import keras_tuner as kt
+def model_builder(hp):
+  '''
+  Builds the model and sets up the hyperparameters to tune.
+
+  Args:
+    hp - Keras tuner object
+
+  Returns:
+    model with hyperparameters to tune
+  '''
+
+  # Initialize the Sequential API and start stacking the layers
+  model = keras.Sequential()
+  model.add(keras.layers.Flatten(input_shape=(28, 28)))
+
+  # Tune the number of units in the first Dense layer
+  # Choose an optimal value between 32-512
+  hp_units = hp.Int('units', min_value=32, max_value=512, step=32)
+  model.add(keras.layers.Dense(units=hp_units, activation='relu', name='tuned_dense_1'))
+
+  # Add next layers
+  model.add(keras.layers.Dropout(0.2))
+  model.add(keras.layers.Dense(10, activation='softmax'))
+
+  # Tune the learning rate for the optimizer
+  # Choose an optimal value from 0.01, 0.001, or 0.0001
+  hp_learning_rate = hp.Choice('learning_rate', values=[1e-2, 1e-3, 1e-4])
+
+  model.compile(optimizer=keras.optimizers.Adam(learning_rate=hp_learning_rate),
+                loss=keras.losses.SparseCategoricalCrossentropy(),
+                metrics=['accuracy'])
+
+  return model
+
+# Instantiate the tuner
+tuner = kt.Hyperband(model_builder,
+                     objective='val_accuracy',
+                     max_epochs=10,
+                     factor=3,
+                     directory='kt_dir',
+                     project_name='kt_hyperband')
+
+# Perform hypertuning
+tuner.search(img_train, label_train, epochs=NUM_EPOCHS, validation_split=0.2, callbacks=[stop_early])
+
+# Get the optimal hyperparameters from the results
+best_hps=tuner.get_best_hyperparameters()[0]
+
+# Build the model with the optimal hyperparameters
+h_model = tuner.hypermodel.build(best_hps)
+h_model.summary()
+```
