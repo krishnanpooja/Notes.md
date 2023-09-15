@@ -146,3 +146,24 @@ Advantages
 4. selected features can be viewed
 5. notebooks provide reproducabilty
 
+#### Microsoft Azure AutoML 
+<img width="917" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/8220db4d-8c1f-49b4-a586-a261ac88d582">
+
+Advanategs:
+1. Quick customization of model and control settings
+2. Automated feature engineering
+3. data visualization
+4. intelligent stopping
+5. experiment summaries and metric visualizations
+6. model interpretabilty
+7. pattern discovery
+
+
+#### Google Cloud AutoML
+Products:
+1. Sight - AutoML Vision (images)- classification and edge image classification, object detection and edge object detection, AutoML Video Intelligence (Video)
+2. Language - AutoML Natural Language (reveal structure and meaning of text), AutoML Translation
+3. Structures data  AutoML Tables
+
+   
+
