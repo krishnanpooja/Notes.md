@@ -135,3 +135,14 @@ That enables us to use a recurrent neural network or RNN to generate that string
       -  computational speed up: a few days of GPU
       -  Network size not inherently bounded
   
+### Cloud based AutoML
+#### Amazon SageMaker Autopilot
+<img width="896" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/e6429fcb-c5fd-4029-8d91-10a94bcb4490">
+
+Advantages
+1. Quick Iterations
+2. high quality models
+3. Performance ranked 
+4. selected features can be viewed
+5. notebooks provide reproducabilty
+
