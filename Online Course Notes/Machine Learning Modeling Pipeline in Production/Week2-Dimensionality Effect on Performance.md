@@ -66,3 +66,19 @@ __Trade-offs__
 3. undefined effects on ML interpretabilty
 
 
+__You can do quantization during training or after the model has been trained__
+#### Post-training Quantization -quantize the weights from floating point numbers to integers in an efficient way
+Post-training quantization is a conversion technique that can reduce model size while also improving CPU and hardware accelerator latency with little degradation in model accuracy.
+You can quantize an already trained TensorFlow model when you convert it to TensorFlow Lite format using the TensorFlow Lite converter.
+
+<img width="864" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/2811a2a6-9556-43ca-a3c0-78c0a2d1c5c3">
+
+- With dynamic range quantization, during inference, the weights are converted from eight bits to floating point, and the activations are computed using floating point kernels. This conversion is done once and cached to reduce latency. This optimization provides latencies which are close to fully fixed point inference.
+- Using dynamic range quantization, you can reduce the model size and/or latency, but this comes with a limitation as it requires inference to be done with floating point numbers. This may not always be ideal since some hardware accelerators only support integer operations, for example, Edge TPUs.
+- Post-training integer quantization works by gathering calibration data, which it does by running inferences on a small set of inputs so as to determine the right scaling parameters needed to convert the model to an integer quantized model
+
+<img width="871" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/2e740684-9d74-4613-b5de-3bc397f650ad">
+
+ if the loss of accuracy is too great, consider using quantization aware training. However, doing so requires modifications during model training to add fake quantization nodes,
+
+
