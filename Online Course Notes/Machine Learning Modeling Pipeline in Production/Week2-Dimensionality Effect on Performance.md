@@ -44,4 +44,25 @@ Regardless of which modeling approach you're using, increasing dimensionality ha
 - This means NMF models are easier to understand and much easier for us to explain to others
 - NMF can't be applied to every dataset however, it requires the sample features to be non-negative, so the values must be greater than or equal to zero.
 - It has been observed that when carefully constrained, NMF can produce a parts-based representation of the dataset, resulting in interpretable models
-- 
+
+### Quantization
+__why Quantize__
+1. Neural networks have many params and take up space
+2. shrinking model file size
+3. reduce computational resources
+4. make models run faster
+5. use less power with lowprecision
+
+Quantization squeezes small range of floating point values into a fixed number of information buckets
+
+__what part of models are affected?__
+1. static values(paramters)
+2. dynamic values(activations)
+3. compuations(transformations)
+
+__Trade-offs__
+1. Optimizations impact model accuracy
+2. in rare cases, models may actually gain accuracy
+3. undefined effects on ML interpretabilty
+
+
