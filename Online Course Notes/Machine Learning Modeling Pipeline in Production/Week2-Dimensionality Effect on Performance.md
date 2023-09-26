@@ -81,4 +81,11 @@ You can quantize an already trained TensorFlow model when you convert it to Tens
 
  if the loss of accuracy is too great, consider using quantization aware training. However, doing so requires modifications during model training to add fake quantization nodes,
 
+#### Pruning
+- Another method to increase the efficiency of models is to remove parts of the model that did not contribute substantially to producing accurate results. This is referred to as pruning. 
+- 1990, written by Yann LeCun, John S. Denker, and Sara A. Solla and was given the rather provocative title of 'Optimal Brain Damage'
+- Pruning was mainly done by using magnitude as an approximation for saliency to determine less useful connections. The intuition being that smaller magnitude weights have a smaller effect in the output, and hence are less likely to have an impact in the model outcome if proven. It was a iterative pruning method.
+- Pruning was mainly done by using magnitude as an approximation for saliency to determine less useful connections. The intuition being that smaller magnitude weights have a smaller effect in the output, and hence are less likely to have an impact in the model outcome if proven. It was a iterative pruning method.
+- That over parameterized dense networks containing several sparse subnetworks with varying performances, and one of these subnetworks is the winning ticket, which outperforms all others. However, there were significant limitations to this method. For one, it does not perform well for larger-scale problems and architectures. 
+<img width="717" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/8f9f7207-9312-4787-897b-00521da1392d">
 
