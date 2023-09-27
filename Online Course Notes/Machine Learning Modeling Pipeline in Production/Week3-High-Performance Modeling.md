@@ -1,4 +1,4 @@
-## Distributed Training
+# Distributed Training
 
 #### Types of Distributed training
 __Data parallelism__  - models are replicated onto different accelerators(GPU/TPU) and data is split between them
@@ -31,3 +31,44 @@ The parameter service strategy is a common asynchronous data parallel method to 
 ### Fault Tolerance
 - This allows you to recover from a failure incurred by preempting workers. This can be done by preserving the training state in the distributed file system. Since all the workers are kept in sync in terms of training epochs and steps, other workers would need to wait for the failed or preempted worker to restart in order to continue.
 - his allows you to recover from a failure incurred by preempting workers. This can be done by preserving the training state in the distributed file system. Since all the workers are kept in sync in terms of training epochs and steps, other workers would need to wait for the failed or preempted worker to restart in order to continue. 
+
+### Multi-worker Configuration
+Now let's enter the world of multi-worker training. In TensorFlow, the TF_CONFIG environment variable is required for training on multiple machines, each of which possibly has a different role. TF_CONFIG is a JSON string used to specify the cluster configuration on each worker that is part of the cluster.
+
+There are two components of TF_CONFIG: cluster and task.
+
+Let's dive into how they are used:
+
+__cluster:__
+
+It is the same for all workers and provides information about the training cluster, which is a dict consisting of different types of jobs such as worker.
+
+In multi-worker training with MultiWorkerMirroredStrategy, there is usually one worker that takes on a little more responsibility like saving checkpoint and writing summary file for TensorBoard in addition to what a regular worker does.
+
+Such a worker is referred to as the chief worker, and it is customary that the worker with index 0 is appointed as the chief worker (in fact this is how tf.distribute.Strategy is implemented).
+
+__task:__
+
+Provides information of the current task and is different on each worker. It specifies the type and index of that worker.
+Here is an example configuration:
+```
+tf_config = {
+    'cluster': {
+        'worker': ['localhost:12345', 'localhost:23456']
+    },
+    'task': {'type': 'worker', 'index': 0}
+}
+```
+
+Since you set the task type to "worker" and the task index to 0, this machine is the first worker and will be appointed as the chief worker.
+
+```
+strategy = tf.distribute.MultiWorkerMirroredStrategy()
+
+# Implementing distributed strategy via a context manager
+with strategy.scope():
+  multi_worker_model = mnist.build_and_compile_cnn_model()
+```
+
+The distribution strategy's scope dictates how and where the variables are created, and in the case of MultiWorkerMirroredStrategy, the variables created are MirroredVariables, and they are replicated on each of the workers.
+
