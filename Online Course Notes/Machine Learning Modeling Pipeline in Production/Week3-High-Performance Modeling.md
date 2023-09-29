@@ -72,3 +72,31 @@ with strategy.scope():
 
 The distribution strategy's scope dictates how and where the variables are created, and in the case of MultiWorkerMirroredStrategy, the variables created are MirroredVariables, and they are replicated on each of the workers.
 
+# High Performance Ingestion
+__Why is this required?__
+<img width="928" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/d19d8cb8-2ea3-4100-b459-d7ae1794ca57">
+
+__Tensorflow Input Pipeline: tf.data__
+__parallel interleave__
+
+<img width="517" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/cddb5780-ffa4-4c68-8760-f2ce14db1e92">
+
+- Use AUTOTUNE to set parallelism automatically
+
+- __Parallel mapping__
+
+ <img width="401" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/8141739f-2a58-4eb9-bfe8-7e0ff771ec71">
+
+#### Training large models
+
+<img width="862" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/5e65fcdc-9380-45c4-8a75-c68a50f47b9e">
+
+- Pipeline parallelism from google-GPipe and __Microsoft-PipeDream__ helps improve the parallel execution of models
+- They integrate both model and data parallelism
+- they divide mini-batch into micro-batches
+- diff workers work on diff miro batches in parallel
+- allows ML models to have significantly more params
+- GPipe receives as input an architecture of a neural network, a mini-batch size and the number of hardware devices that will be available for the calculation. It then automatically divides the network layers into stages and the mini-batches into micro-batches, spreading them across the devices. To divide the model into key stages, GPipe estimates the cost of each layer given its activation function and the content of the training data. GPipe attempts to maximize memory allocation for model parameters.
+ 
+
+
