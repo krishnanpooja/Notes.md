@@ -106,3 +106,10 @@ __parallel interleave__
 -  __Knowledge distillation is a way to train a small model, to mimic a larger model, or even an ensemble of models.__
 -   It starts, by first training a complex model or model ensemble to achieve a high level of accuracy. It then uses that model as a teacher for a simpler student model. Which will then be the actual model that gets deployed to production.
 -  This teacher network can be either fixed or jointly optimized. Can even be used to train multiple student models of different sizes simultaneously. 
+
+## Teacher and Student
+- In knowledge distillation, the training objective functions for the student and the teacher are different
+- The teacher will be trained first using a standard objective function that seeks to maximize the accuracy or a similar metric of the model. This is normal model training
+- The student then seeks transferable knowledge. It uses that objective function that seeks to match the probability distribution of the predictions of the teacher.
+- Notice that the student is not just learning the teacher's predictions, but the __probabilities of the predictions__. The probabilities of the predictions of the teacher form soft targets, which provide more information about the knowledge learned by the teacher than the resulting predictions themselves.
+- 
