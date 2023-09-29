@@ -99,4 +99,10 @@ __parallel interleave__
 - GPipe receives as input an architecture of a neural network, a mini-batch size and the number of hardware devices that will be available for the calculation. It then automatically divides the network layers into stages and the mini-batches into micro-batches, spreading them across the devices. To divide the model into key stages, GPipe estimates the cost of each layer given its activation function and the content of the training data. GPipe attempts to maximize memory allocation for model parameters.
  
 
+# Knowledge Distillation
+'Distill' or concentrate the model complexity into smaller networks
 
+-  the goal of knowledge distillation-  Rather than optimizing the network implementation, as we saw with quantization and pruning. Knowledge distillation seeks to create a more efficient model which captures the same knowledge as a more complex model. If needed, further optimization can then be applied to the result.
+-  __Knowledge distillation is a way to train a small model, to mimic a larger model, or even an ensemble of models.__
+-   It starts, by first training a complex model or model ensemble to achieve a high level of accuracy. It then uses that model as a teacher for a simpler student model. Which will then be the actual model that gets deployed to production.
+-  This teacher network can be either fixed or jointly optimized. Can even be used to train multiple student models of different sizes simultaneously. 
