@@ -132,3 +132,11 @@ __parallel interleave__
 
 - The objective here is to make the distribution over the classes predicted by the student as close as possible to the teacher. When computing the loss function versus the teacher's soft targets, we use the same value of T to compute the softmax on the student's logits. This loss is the distillation loss.
 -  distilled models are able to produce the correct labels in addition to the teacher's soft targets. That means that you can calculate the standard loss between the student's predicted class probabilities and the ground truth labels. These are known as hard labels or targets. This loss is the student loss.
+
+
+## Case Study for Two-stage multi teacher distillation for QnA(TMKD)
+- One Teacher one student models sometimes suffers from information loss and is not in par with teacher
+- Solution combine ensemble model method and knowledge distillation
+- This involves first training mulitple teacher models like BERT, GPT each having diff hyperparameters. Finally 
+- 
+
