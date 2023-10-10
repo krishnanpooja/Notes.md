@@ -78,7 +78,16 @@ Google Cloud AI continuous evaluation regularly samples prediction input and out
   - conduct feature selection on training data
   - use fairness metrics to select hyperparams and decision cut-off thresholds
 
-
+## Fairness
+1. Positive and Negative rates - Prcentage of data points classified as positive and negative
+2. True Positive rate / False Negative Rate
+3. True negative rate/ False positive rate
+  -- FPR- percentage of negative data points that are incorrectly labeled positive
+  -- use case : where misclassifying something as positive is more concerning than classifying the positives
+4 Accuracy and AUC
+ - The percentage of data points that are correctly labeled when each class is given equal weight independent of number of samples
+ - Use case: precision is critical.
+- 
   
 
 
