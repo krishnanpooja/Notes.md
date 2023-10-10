@@ -66,4 +66,20 @@ Types of dataset shift:
 Google Cloud AI continuous evaluation regularly samples prediction input and output from trained models that you've deployed to AI Platform Prediction. AI Platform Data Labeling service then assigns human reviewers to provide ground truth labels for a sample of the prediction requests that you receive. Or alternatively you can provide your own ground truth labels using a different technique.
 
  
- 
+ ### Model Remediation
+ 1. Data augmentation - adding synthetic data into training set and correct unbalanced training data
+ 2. Interpretable and explainable ML - understan neural networks instead of considering them as black box  and also understand how th edata gets transformed
+ 3. Model editing - applied to decision trees which involves manual tweaks to your use case
+ 4. Model assertions- implement business rules that override model predicitions like age cannot be a negative value
+
+### How to avoid model bias
+- __Discrimination Remediation__
+  - include people from different background
+  - conduct feature selection on training data
+  - use fairness metrics to select hyperparams and decision cut-off thresholds
+
+
+  
+
+
+ 6. 
