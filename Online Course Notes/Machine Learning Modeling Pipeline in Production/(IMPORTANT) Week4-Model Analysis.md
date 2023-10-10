@@ -59,6 +59,7 @@ Types of dataset shift:
 - Space near the margins where the model has low confidence matters more than in other places, and this method looks for incoming data that falls into the margins. A change in the number of samples in the margin, the margin density, indicates drift.
 - This method is very good at reducing the false alarm rate.
 
+### Contiuous Evalution on Cloud
  - One such service is Microsoft Azure Machine Learning datasets which focuses on data drift.
 - Another is Amazon SageMaker Model Monitor which focuses on concept drift.
 - Google Cloud AI continuous evaluation which also focuses primarily on concept drift,
