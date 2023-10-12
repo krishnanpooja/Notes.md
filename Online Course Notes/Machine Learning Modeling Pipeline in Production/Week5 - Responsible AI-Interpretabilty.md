@@ -23,3 +23,19 @@
 -  Essentially, they are Post-hoc methods. These methods do not have access to the internals of the model such as weights and parameters, etc.
 
 ##### Local or global
+- __local__ - A local interpretability method explains an individual prediction. For example, feature attribution in the prediction of a single example in the dataset.
+- __global__  - Global methods explain the entire model behavior. For example, if the method creates a summary of feature attributions for predictions on the entire test set, then it can be considered global. 
+
+### Intrinsically Interpretable Model
+- working of the model is transparent enough to explain its working
+
+#### TF Lattice
+- Overlaps a grid onto the feature space and learns values for the output at the vertices of the grid
+- linearly interpolates from the lattice values surrounding a point
+- __TF lattice__ enables you to inject domain knowledge into the learning process through common-sence or policy-driven shape constraints
+- Advamtage:- accuracy as per neural netwrok and interpretable unlike NN
+- disadvantage:- high dimensions can complicate things
+
+
+### Model Agnostic Methods
+Model agnostic methods separate the explanations from the model. These methods can be applied to any model after it's been trained. For example, they can be applied to linear regression or decision trees or even black box models like neural networks.
