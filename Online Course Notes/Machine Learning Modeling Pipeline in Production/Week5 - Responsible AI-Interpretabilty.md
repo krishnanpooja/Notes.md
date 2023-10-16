@@ -39,3 +39,23 @@
 
 ### Model Agnostic Methods
 Model agnostic methods separate the explanations from the model. These methods can be applied to any model after it's been trained. For example, they can be applied to linear regression or decision trees or even black box models like neural networks.
+
+#### Permutation Feature Importance
+- Feature is important if shuffling its values increases model error
+- Feature is __unimportant__ if shuffling leaves model error unchanged
+
+  <img width="927" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/226d4699-e78a-46d2-a1d1-413852ea600a">
+
+#### Shapley Value
+- how important is each player to the overall cooperation and what payoff can he or she reasonably expect? The Shapley value provides one possible answer to this question.The players are the features of the data set, and we're using the Shapley value to determine how much each feature contributes to the results. 
+- Advantages:
+   1. Based on solid theoretical foundation
+   2. value is fairly distriuted among all features
+   3. enables contrastive explanations
+
+- Disadvantages:
+   1. Computationally expensive
+   2. can be Misinterpreted
+   3. always uses all features
+   4. can't test for different input values
+   5. doesn't work well when features are correleated
