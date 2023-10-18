@@ -59,3 +59,27 @@ Model agnostic methods separate the explanations from the model. These methods c
    3. always uses all features
    4. can't test for different input values
    5. doesn't work well when features are correleated
+      
+#### SHAP (SHapley Additive Explanations)
+- SHAP is a frmaework for Shapley values which assigns each feature an imp value for particular predicition
+- include extensions like TreeExplainer (tree ensemble), DeepExplainer(SHAP values for deep learning models), GradientExplainer etc
+
+#### Testing Concept Activation Vectors(TCAV)
+CAVs - a NN internal state in terms of human-friendly concepts
+defined using examples which show the same concept
+
+#### LIME (Local Interpretable Model-agnostic Explantations)
+- well known tool for local interpretations
+- It implements local surrgate models- interpretable models that are used to explain induvidual predicitions
+- using data points close to induvidual prediction, LIME trains an interpretable model to approximate the predictions of the real model
+
+#### AI Explanations (Google's Cloud tool for Explaining models)
+-  AI Explanations integrates feature attributions into Google's AI Platform Prediction service
+-  AI Explanations helps you understand your model's output for classification and regression tasks. Whenever you request a prediction on AI Platform, AI Explanations tells you how much each feature in the data contributed to the predicted results.
+- It uses SHAPLEY, Integrated gradients and XRAI to explain the models
+##### Integrated Gradients
+##### XRAI (explanation with Ranked Area Integrals)
+- for image classification
+
+<img width="809" alt="image" src="https://github.com/krishnanpooja/Notes.md/assets/8016149/2d101781-4c3b-405c-8309-0e997982d044">
+
