@@ -9,6 +9,8 @@ Confidence intervals are constructed at a confidence level, such as 95 %, select
 **Oversampling and Undersampling**
 
 The two main approaches to randomly resampling an imbalanced dataset are to delete examples from the majority class, called undersampling, and to duplicate examples from the minority class, called oversampling.
+- SMOTE-synthetic dataset generation
+- combination of under and over sampling
 
 **ROC and AUC**
 
