@@ -479,3 +479,26 @@ No sequential proccessing. So model converges faster.
 Attention is based on query,key and value.
 Attention weights for a word is calculated as Q.K_T . This value is scaled and softmaxed and then matmul with VT
 
+**NLP vs NLU vs NLG**
+<img width="473" alt="image" src="https://github.com/user-attachments/assets/df255a1b-aaa5-4fa4-9c98-4a1bc17da905">
+
+**RAG- Retrieval Augmented Generation**
+RAG operates by fetching relevant documents or data snippets based on a query and then using this retrieved information to generate a coherent and contextually appropriate response. This method is particularly valuable in fields like chatbot development, where the ability to provide precise answers derived from extensive databases of knowledge is crucial.
+
+```
+from transformers import RagTokenizer, RagSequenceForGeneration
+# Replace with your chosen model and tokenizer names
+model_name = "facebook/rag-token-base"
+tokenizer = RagTokenizer.from_pretrained(model_name)
+model = RagSequenceForGeneration.from_pretrained(model_name)
+inputs = tokenizer(your_prompt, return_tensors="pt")
+retrieval_output = model.get_retrieval_vector(inputs)
+generation_inputs = {
+    "input_ids": inputs.input_ids,
+    "attention_mask": inputs.attention_mask,
+    "retrieval_logits": retrieval_output,
+}
+generation_output = model.generate(**generation_inputs)
+generated_text = tokenizer.decode(generation_output.sequences[0])
+```
+
