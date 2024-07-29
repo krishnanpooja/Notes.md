@@ -44,7 +44,7 @@ Fine-tuning is the process of taking a pre-trained model and further training it
 4. Initialize your base model
 5. fine tune using Trainer method
     The Transformers library contains the Trainer class, which supports a wide range of training options and features such as logging, gradient accumulation, and mixed precision
-   ```
+ ```
    trainer = Trainer(
    model=model,
    args=training_args,
