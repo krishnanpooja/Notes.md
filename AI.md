@@ -504,3 +504,27 @@ generation_output = model.generate(**generation_inputs)
 generated_text = tokenizer.decode(generation_output.sequences[0])
 ```
 
+**Difference between self attentio and multi head self attention**
+Self-Attention:
+
+Core concept: Analyzes how each element in a sequence relates to all other elements.
+Process: Each element in the sequence is transformed into three vectors: Query (Q), Key (K), and Value (V).
+A compatibility score is calculated between each pair of elements using the Q and K vectors.
+These scores are normalized using softmax to create attention weights, indicating how much “attention” each element should pay to others.
+The attention weights are used to weight the V vectors, essentially creating a context-aware representation for each element based on its relationship with others.
+Multi-Head Self-Attention:
+
+Builds upon self-attention: Performs multiple self-attention operations in parallel, with each operation learning to focus on different aspects of the relationships between elements.
+Process (similar to self-attention but in parallel):
+The input is projected into multiple sets of Q, K, and V vectors for each “head.”
+Separate attention scores and weighted outputs are calculated for each head.
+The outputs from all heads are concatenated to form the final output.
+Analogy:
+
+Imagine you’re reading a sentence. Self-attention would be like considering how each word relates to every other word to understand the overall meaning. Multi-head self-attention would be like reading the sentence several times, each time focusing on a different aspect like grammar, word relationships, or sentiment. By combining these focused readings, you get a richer understanding of the sentence.
+
+Key takeaway:
+
+Self-attention provides a context-aware representation for each element in a sequence.
+Multi-head self-attention refines this by allowing the model to learn different aspects of the relationships between elements, leading to a more robust understanding of the sequence.
+
