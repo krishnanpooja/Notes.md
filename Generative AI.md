@@ -33,3 +33,36 @@ ai_output = response["choices"][0]["message"]["content"]
 display(Markdown(ai_output))
 ```
 **How to finetune a model**
+Fine-tuning is the process of taking a pre-trained model and further training it on a domain-specific dataset.
+1. choose a pretrained model and dataset
+2. load the dataset
+3. tokenizer
+   ```
+   tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+   ```
+
+4. Initialize your base model
+5. fine tune using Trainer method
+    The Transformers library contains the Trainer class, which supports a wide range of training options and features such as logging, gradient accumulation, and mixed precision
+   ```
+   trainer = Trainer(
+   model=model,
+   args=training_args,
+   train_dataset=small_train_dataset,
+   eval_dataset=small_eval_dataset,
+   compute_metrics=compute_metrics,
+
+)
+
+trainer.train()
+```
+6. Evaluate the model
+
+**Difference between fine-tuning model and RAG**
+1. Dynamic vs. Static: RAG excels in dynamic environments with up-to-date information, while fine-tuning may result in static models.
+2. Model Customization: Fine-tuning offers more customization for writing style and behavior, while RAG focuses on information retrieva
+3. Hallucinations: RAG is less prone to hallucinations, but fine-tuning can reduce hallucinations with domain-specific data.
+4. Accuracy: Fine-tuning often provides higher accuracy for specialized tasks.
+5. Transparency: RAG offers greater transparency in response generation.
+6. Cost: RAG is generally more cost-effective than fine-tuning.
+7. Complexity: Fine-tuning is more complex, requiring deeper knowledge of NLP and model training.
