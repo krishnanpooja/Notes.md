@@ -13,7 +13,7 @@ Difference of ChatGPT from previous GPT version - *how it takes input*
 
 ## Model Parameters - Based on OpenAI Studio
   Adjust these parameters to improve model behaavior
-  1. Max response - Doesn't affect quality of the repsonse. Just affects the cost and latency
+  1. Max response - Doesn't affect quality of the response. Just affects the cost and latency
   2. Temperature - Most important parameter.
      Temperature=0=precise
      Temprature>0.5 = creative
@@ -29,7 +29,7 @@ Sentiment Analysis-> output from summary is used to figure out sentiment
 ## Meta Prompt
 Advanced way of writing prompts
 1. The conversational agent whose code name is Dana -> what is expected of the agent, features like what she understands
-2. Capabilties of the agent -> like repsonses should be informational and logical
+2. Capabilties of the agent -> like responses should be informational and logical
 3. where it can gather information from -> whether it can access DBs, API etc
 4. Safety matters for responsible AI
 
